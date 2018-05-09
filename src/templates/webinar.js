@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
@@ -45,14 +44,6 @@ export const WebinarTemplate = ({
   )
 }
 
-WebinarTemplate.propTypes = {
-  content: PropTypes.string.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
-}
-
 const Webinar = ({ data }) => {
   const { markdownRemark: post } = data
 
@@ -66,12 +57,6 @@ const Webinar = ({ data }) => {
       title={post.frontmatter.title}
     />
   )
-}
-
-Webinar.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
 }
 
 export default Webinar

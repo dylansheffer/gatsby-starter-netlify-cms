@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
 export default class WebinarsPage extends React.Component {
@@ -42,14 +41,6 @@ export default class WebinarsPage extends React.Component {
       </section>
     )
   }
-}
-
-WebinarsPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
 }
 
 export const pageQuery = graphql`
