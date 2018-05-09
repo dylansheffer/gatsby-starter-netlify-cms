@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPostTemplate = ({
+export const ArticleTemplate = ({
   content,
   contentComponent,
   description,
@@ -44,25 +44,25 @@ export const BlogPostTemplate = ({
   )
 }
 
-const BlogPost = ({ data }) => {
+const Article = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <BlogPostTemplate
+    <ArticleTemplate
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+      helmet={<Helmet title={`${post.frontmatter.title} | Articles`} />}
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
     />
   )
 }
 
-export default BlogPost
+export default Article
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query ArticleByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

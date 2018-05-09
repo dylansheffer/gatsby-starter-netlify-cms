@@ -1,40 +1,64 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faHome, faListUl, faBriefcase, faFile, faUsers, faVideo }  from '@fortawesome/fontawesome-free-solid'
 
-import logo from '../img/logo.png'
+
+const Navigation = styled.nav`
+  display: flex;
+  background: black;
+  ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    li {
+      list-style: none;
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        padding: 10px;
+      }
+    }
+  }
+`
 
 const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image" style={{ margin: '0' }}>
-            <img src={logo} alt="Swift Kick Logo" style={{ width: '150px' }} />
-          </figure>
+  <Navigation>
+    <ul>
+      <li>
+        <Link to="/">
+          <FontAwesomeIcon icon={faHome} /> Home
         </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
+      </li>
+      <li>
+        <Link to="/courses">
+          <FontAwesomeIcon icon={faListUl} /> Courses
         </Link>
-        <Link className="navbar-item" to="/products">
-          Products
+      </li>
+      <li>
+        <Link to="/consulting">
+          <FontAwesomeIcon icon={faBriefcase} /> Consulting
         </Link>
-        <Link className="navbar-item" to="/webinars">
-          Webinars
+      </li>
+      <li>
+        <Link to="/articles">
+          <FontAwesomeIcon icon={faFile} /> Articles
         </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-      </div>
-    </div>
-  </nav>
+      </li>
+      <li>
+        <Link to="/webinars">
+          <FontAwesomeIcon icon={faVideo} /> Webinars
+        </Link>
+      </li>
+      <li>
+        <Link to="/about">
+          <FontAwesomeIcon icon={faUsers} /> About Us
+        </Link>
+      </li>
+    </ul>
+  </Navigation>
 )
 
 export default Navbar

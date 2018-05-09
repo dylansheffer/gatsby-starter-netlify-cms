@@ -8,13 +8,13 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: "article"
+    label: "Article"
+    folder: "src/pages/article"
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author Twitter", name: "author-twitter", widget: "string", required: false}
@@ -31,7 +31,7 @@ collections:
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "webinar"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Speaker", name: "speaker", widget: "string"}
       - {label: "Speaker Twitter", name: "speaker-twitter", widget: "string", required: false}
