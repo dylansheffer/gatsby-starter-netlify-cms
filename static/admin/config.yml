@@ -5,31 +5,47 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+publish_mode: editorial_workflow
+
 collections:
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Author Twitter", name: "author-twitter", widget: "string", required: false}
+      - {label: "Author LinkedIn", name: "author-linkedin", widget: "string", required: false}
+      - {label: "Author Facebook", name: "author-facebook", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "SEO Description", name: "description", widget: "text"}
   - name: "webinar"
-    label: "Webinar"
+    label: "Webinars"
     folder: "src/pages/webinars"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "webinar"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Speaker", name: "speaker", widget: "string"}
+      - {label: "Speaker Twitter", name: "speaker-twitter", widget: "string", required: false}
+      - {label: "Speaker LinkedIn", name: "speaker-linkedin", widget: "string", required: false}
+      - {label: "Speaker Facebook", name: "speaker-facebook", widget: "string", required: false}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Author Twitter", name: "author-twitter", widget: "string", required: false}
+      - {label: "Author LinkedIn", name: "author-linkedin", widget: "string", required: false}
+      - {label: "Author Facebook", name: "author-facebook", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "SEO Description", name: "description", widget: "text"}
 
   - name: "pages"
     label: "Pages"
