@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: article
 title: Test Blog Post
 author: Dylan
 author-twitter: ''
