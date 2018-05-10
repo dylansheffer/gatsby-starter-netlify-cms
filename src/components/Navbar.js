@@ -12,7 +12,6 @@ const Navigation = styled.nav`
   
   .nav-container {
     min-height: ${MinNavHeight};
-    max-width: 1024px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -68,7 +67,7 @@ let menuClosed = true;
 
 const Navbar = () => (
   <Navigation>
-    <div className="nav-container">
+    <div className="nav-container container">
       <div className="hamburger-container">
         <button onClick={() => {
           const menu = document.querySelector("#menu");

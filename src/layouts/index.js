@@ -16,6 +16,10 @@ fontawesome.config = {
 
 const GlobalStyles = styled.div`
   font-family: ${text.sansSerif};
+
+  .container {
+    max-width: 1024px;
+  }
 `
 
 const TemplateWrapper = ({ children }) => (
