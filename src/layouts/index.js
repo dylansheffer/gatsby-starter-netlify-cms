@@ -22,7 +22,7 @@ const TemplateWrapper = ({ children }) => (
   <GlobalStyles>
     <Helmet>
       <title>SwiftKick</title>
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
     </Helmet>
     <Navbar />
     <div>{children()}</div>
