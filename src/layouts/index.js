@@ -7,6 +7,7 @@ import '@fortawesome/fontawesome/styles.css'
 import { colors, text } from '../style/branding'
 
 import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 
 // Manually imported Font Awesome CSS to fix server-side rendering
@@ -16,9 +17,13 @@ fontawesome.config = {
 
 const GlobalStyles = styled.div`
   font-family: ${text.sansSerif};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .container {
     max-width: 1024px;
+    margin: 0 auto;
   }
 `
 
@@ -29,6 +34,7 @@ const TemplateWrapper = ({ children }) => (
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
     </Helmet>
     <Navbar />
+    <Hero />
     <div>{children()}</div>
     <Footer />
   </GlobalStyles>

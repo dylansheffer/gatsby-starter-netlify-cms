@@ -4,15 +4,14 @@ import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHome, faListUl, faBriefcase, faFile, faUsers, faVideo, faBars }  from '@fortawesome/fontawesome-free-solid'
 
-const MinNavHeight = "80px";
+const MinNavHeight = "50";
 
 const Navigation = styled.nav`
   background: black;
   width: 100%;
   
   .nav-container {
-    min-height: ${MinNavHeight};
-    margin: 0 auto;
+    min-height: ${MinNavHeight}px;
     display: flex;
     flex-direction: column;
   }
@@ -21,12 +20,12 @@ const Navigation = styled.nav`
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    height: ${MinNavHeight};
+    height: ${MinNavHeight}px;
     button {
       background: none;
       border: none;
       color: white;
-      padding: 20px;
+      padding: 0 25px;
     }
   }
   #menu {
