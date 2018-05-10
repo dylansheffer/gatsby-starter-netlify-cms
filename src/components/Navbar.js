@@ -19,6 +19,9 @@ const Navigation = styled.nav`
         text-decoration: none;
         margin: 10px;
         padding: 10px;
+        svg {
+          // width: 1.125em !important;
+        }
       }
     }
   }
@@ -29,32 +32,38 @@ const Navbar = () => (
     <ul>
       <li>
         <Link to="/">
-          <FontAwesomeIcon icon={faHome} /> Home
+          <FontAwesomeIcon icon={faHome} size="sm" /> Home
+          {/* <i className="fas fa-home"></i> Home */}
         </Link>
       </li>
       <li>
         <Link to="/courses">
-          <FontAwesomeIcon icon={faListUl} /> Courses
+          <FontAwesomeIcon icon={faListUl} size="sm" /> Courses
+          {/* <i className="fas fa-list-ul"></i> Courses */}
         </Link>
       </li>
       <li>
         <Link to="/consulting">
-          <FontAwesomeIcon icon={faBriefcase} /> Consulting
+          <FontAwesomeIcon icon={faBriefcase} size="sm" /> Consulting
+          {/* <i className="fas fa-briefcase"></i> Consulting */}
         </Link>
       </li>
       <li>
         <Link to="/articles">
-          <FontAwesomeIcon icon={faFile} /> Articles
+          <FontAwesomeIcon icon={faFile} size="sm" /> Articles
+          {/* <i className="fas fa-file"></i> Articles */}
         </Link>
       </li>
       <li>
         <Link to="/webinars">
-          <FontAwesomeIcon icon={faVideo} /> Webinars
+          <FontAwesomeIcon icon={faVideo} size="sm" /> Webinars
+          {/* <i className="fas fa-video"></i> Webinars */}
         </Link>
       </li>
       <li>
         <Link to="/about">
-          <FontAwesomeIcon icon={faUsers} /> About Us
+          <FontAwesomeIcon icon={faUsers} size="sm" /> About Us
+          {/* <i className="fas fa-users"></i> About Us */}
         </Link>
       </li>
     </ul>
