@@ -20,7 +20,7 @@ const HeroStyle = styled.div`
     }
 
     .logo {
-        max-height: 110px;
+        max-height: 150px;
         margin: auto;
     }
 
@@ -33,8 +33,6 @@ const HeroStyle = styled.div`
         }
     }
 `
-
-console.log(BackgroundImage);
 
 const Hero = () => (
   <HeroStyle>

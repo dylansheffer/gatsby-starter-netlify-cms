@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHome, faListUl, faBriefcase, faFile, faUsers, faVideo, faBars }  from '@fortawesome/fontawesome-free-solid'
 
-const MinNavHeight = "50";
+const MinNavHeight = "60";
 
 const Navigation = styled.nav`
   background: black;
@@ -34,13 +34,27 @@ const Navigation = styled.nav`
     display: block;
     li {
       list-style: none;
-      display: flex;
-      width: 100%;
-      padding: 10px 0;
-      justify-content: center;
+      margin: 0 auto;
       a {
         color: white;
         text-decoration: none;
+        height: ${MinNavHeight}px;
+        width: 100%;
+        justify-content: center;
+        transition: .5s all ease;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: .1em;
+        display: flex;
+        align-items: center;
+        
+        &:hover {
+          background: #be3532 !important;
+        }
+        
+        svg {
+          padding-right: .3em;
+        }
       }
     }
   }
@@ -48,7 +62,7 @@ const Navigation = styled.nav`
     display: none;
   }
 
-  @media only screen and (min-width: 650px) {
+  @media only screen and (min-width: 720px) {
     .hamburger-container {
       display: none;
     }
@@ -57,6 +71,12 @@ const Navigation = styled.nav`
     }
     #menu {
       margin: auto 0;
+
+      li {
+        a {
+          padding: 0 7px;
+        }
+      }
     }
   }
   `
@@ -71,7 +91,6 @@ const Navbar = () => (
         <button onClick={() => {
           const menu = document.querySelector("#menu");
           menuClosed = !menuClosed;
-          console.log(menu);
           menuClosed ? menu.classList.add("closed") : menu.classList.remove("closed");
           }}>
           <FontAwesomeIcon icon={faBars} size="2x" />
@@ -84,27 +103,27 @@ const Navbar = () => (
           </Link>
         </li>
         <li>
-          <Link to="/courses">
+          <Link to="/courses" activeStyle={{backgroundColor: '#3e5463'}}>
             <FontAwesomeIcon icon={faListUl} /> Courses
           </Link>
         </li>
         <li>
-          <Link to="/consulting">
+          <Link to="/consulting" activeStyle={{backgroundColor: '#3e5463'}}>
             <FontAwesomeIcon icon={faBriefcase} /> Consulting
           </Link>
         </li>
         <li>
-          <Link to="/articles">
+          <Link to="/articles" activeStyle={{backgroundColor: '#3e5463'}}>
             <FontAwesomeIcon icon={faFile} /> Articles
           </Link>
         </li>
         <li>
-          <Link to="/webinars">
+          <Link to="/webinars" activeStyle={{backgroundColor: '#3e5463'}}>
             <FontAwesomeIcon icon={faVideo} /> Webinars
           </Link>
         </li>
         <li>
-          <Link to="/about">
+          <Link to="/about" activeStyle={{backgroundColor: '#3e5463'}}>
             <FontAwesomeIcon icon={faUsers} /> About Us
           </Link>
         </li>
