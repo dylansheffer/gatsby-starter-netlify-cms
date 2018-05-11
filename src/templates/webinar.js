@@ -2,8 +2,9 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import Content, { HTMLContent } from '../components/Content'
 import styled from 'styled-components'
+import Content, { HTMLContent } from '../components/Content'
+import PostTags from '../components/Tags'
 
 export const WebinarTemplate = ({
   content,
@@ -19,24 +20,6 @@ export const WebinarTemplate = ({
     
   `
 
-  const Tags = styled.div`
-    h2 {
-      text-align: center;
-    }
-
-    .tagList {
-      list-style: none;
-      display: flex;
-      justify-content: space-evenly;
-      li {
-        a {
-          text-decoration: underline;
-          color: black;
-        }
-      }
-    }
-  `
-
   return (
     <Webinar>
       {helmet || ''}
@@ -48,18 +31,7 @@ export const WebinarTemplate = ({
             </h1>
             <p>{description}</p>
             <WebinarContent content={content} />
-            {tags && tags.length ? (
-              <Tags>
-                <h2>Tags</h2>
-                <ul className="tagList">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </Tags>
-            ) : null}
+            <PostTags tags={tags} />
           </div>
         </div>
       </div>

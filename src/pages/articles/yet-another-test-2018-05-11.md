@@ -7,7 +7,7 @@ image: /img/2018-01-31-16-40-12.jpg
 tags:
   - Tag
   - Test
-  - ''
+  - 
 description: Description
 ---
 Cardigan tacos hoodie stumptown chicharrones. Trust fund schlitz bushwick readymade before they sold out yuccie umami four dollar toast health goth cliche beard. Vegan chia taxidermy glossier, quinoa tote bag banjo copper mug art party ethical shoreditch.

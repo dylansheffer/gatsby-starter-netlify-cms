@@ -2,8 +2,10 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import Content, { HTMLContent } from '../components/Content'
 import styled from 'styled-components'
+
+import Content, { HTMLContent } from '../components/Content'
+import PostTags from '../components/Tags'
 
 export const ArticleTemplate = ({
   content,
@@ -30,18 +32,7 @@ export const ArticleTemplate = ({
             </h1>
             <p>{description}</p>
             <ArticleContent content={content} />
-            {tags && tags.length ? (
-              <div>
-                <h4>Tags</h4>
-                <ul>
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+            <PostTags tags={tags} />
           </div>
         </div>
       </div>
