@@ -10,7 +10,7 @@ publish_mode: editorial_workflow
 collections:
   - name: "article"
     label: "Article"
-    folder: "src/pages/article"
+    folder: "src/pages/articles"
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
