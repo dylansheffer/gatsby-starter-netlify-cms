@@ -21,6 +21,10 @@ const GlobalStyles = styled.div`
   flex-direction: column;
   align-items: center;
 
+  img {
+    max-width: 100%;
+  }
+
   .container {
     max-width: 1024px;
     margin: 0 auto;

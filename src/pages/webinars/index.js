@@ -1,27 +1,28 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
 
 export default class WebinarsPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
+    
+    const WebinarExcerpt = styled.article`
+
+    `
 
     return (
-      <section className="section">
+      <section>
         <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Webinars</h1>
+          <div>
+            <h1>Latest Webinars</h1>
           </div>
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'webinar')
             .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={post.id}
-              >
+              <WebinarExcerpt key={post.id}>
                 <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
+                  <Link to={post.fields.slug}>
                     {post.frontmatter.title}
                   </Link>
                   <span> &bull; </span>
@@ -31,11 +32,11 @@ export default class WebinarsPage extends React.Component {
                   {post.excerpt}
                   <br />
                   <br />
-                  <Link className="button is-small" to={post.fields.slug}>
+                  <Link to={post.fields.slug}>
                     Keep Reading →
                   </Link>
                 </p>
-              </div>
+              </WebinarExcerpt>
             ))}
         </div>
       </section>

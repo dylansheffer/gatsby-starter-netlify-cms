@@ -3,6 +3,7 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
+import styled from 'styled-components'
 
 export const WebinarTemplate = ({
   content,
@@ -12,35 +13,57 @@ export const WebinarTemplate = ({
   title,
   helmet,
 }) => {
-  const PostContent = contentComponent || Content
+  const WebinarContent = contentComponent || Content
+
+  const Webinar = styled.article`
+    
+  `
+
+  const Tags = styled.div`
+    h2 {
+      text-align: center;
+    }
+
+    .tagList {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+      li {
+        a {
+          text-decoration: underline;
+          color: black;
+        }
+      }
+    }
+  `
 
   return (
-    <section className="section">
+    <Webinar>
       {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+      <div className="container">
+        <div>
+          <div>
+            <h1>
               {title}
             </h1>
             <p>{description}</p>
-            <PostContent content={content} />
+            <WebinarContent content={content} />
             {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
+              <Tags>
+                <h2>Tags</h2>
+                <ul className="tagList">
                   {tags.map(tag => (
                     <li key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Tags>
             ) : null}
           </div>
         </div>
       </div>
-    </section>
+    </Webinar>
   )
 }
 
