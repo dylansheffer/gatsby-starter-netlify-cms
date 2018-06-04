@@ -34,7 +34,7 @@ const GlobalStyles = styled.div`
 const TemplateWrapper = ({ children }) => (
   <GlobalStyles>
     <Helmet>
-      <title>SwiftKick</title>
+      <title>Swift Kick</title>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
     </Helmet>
     <Navbar />
