@@ -1,41 +1,43 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import {PageHeader, ArticleExcerpt as WebinarExcerpt} from '../../style/articleExcerpt'
+
+import DefaultPostImage from '../../img/placeholder.svg'
 
 export default class WebinarsPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
-    
-    const WebinarExcerpt = styled.article`
-
-    `
 
     return (
       <section>
         <div className="container">
           <div>
-            <h1>Latest Webinars</h1>
+            <PageHeader>Latest Webinars</PageHeader>
           </div>
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'webinar')
             .map(({ node: post }) => (
               <WebinarExcerpt key={post.id}>
-                <p>
-                  <Link to={post.fields.slug}>
-                    {post.frontmatter.title}
+                <img className="featured-image" src={post.image || DefaultPostImage} alt=""/>
+                <div className="article-content">
+                  <div className="article-heading">
+                    <h2>
+                      <Link to={post.fields.slug}>
+                        {post.frontmatter.title}
+                      </Link>
+                    </h2>
+                    <span>
+                      {post.frontmatter.date}
+                    </span>
+                  </div>
+                  <p>
+                    {post.excerpt}
+                  </p>
+                  <Link className="button" to={post.fields.slug}>
+                    Keep Reading
                   </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
+                </div>
               </WebinarExcerpt>
             ))}
         </div>

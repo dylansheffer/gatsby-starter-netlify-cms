@@ -3,17 +3,17 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import BackgroundImage from '../img/hero.jpeg'
-import Logo from '../img/logo.png'
+import Logo from '../img/logo.svg'
 
 const HeroStyle = styled.div`
     display: none;
     width: 100%;
     background: linear-gradient(
-        rgba(20,20,20, .8), 
+        rgba(20,20,20, .8),
         rgba(20,20,20, .8)),
         url(${BackgroundImage});
     background-size: cover;
-    
+
     .hero-container {
         height: 40vh;
         max-height: 700px;
