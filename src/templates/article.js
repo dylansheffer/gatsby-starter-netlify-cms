@@ -65,7 +65,7 @@ export const ArticleTemplate = ({
               {title}
             </h1>
             <div className="post-citation">
-              <span>by <a href="http://" rel="author">{author}</a></span>
+              <span>by <a href="http://" rel="author">{author || "Author"}</a></span>
               <p><time>{date}</time></p>
             </div>
             <ArticleContent content={content} />
