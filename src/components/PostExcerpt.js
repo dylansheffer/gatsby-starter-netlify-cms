@@ -90,7 +90,7 @@ const PostExcerptListing = styled.article`
 
 const PostExcerpt = ({ post }) => (
     <PostExcerptListing>
-        <img className="featured-image" src={post.image || DefaultPostImage} alt=""/>
+        <img className="featured-image" src={post.frontmatter.image || DefaultPostImage} alt=""/>
         <div className="article-content">
             <div className="article-heading">
                 <h2>

@@ -20,6 +20,7 @@ const GlobalStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: ${colors.grayText};
 
   img {
     max-width: 100%;

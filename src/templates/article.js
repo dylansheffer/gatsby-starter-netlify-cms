@@ -12,7 +12,6 @@ import PostTags from '../components/Tags'
 export const ArticleTemplate = ({
   content,
   contentComponent,
-  description,
   tags,
   title,
   author,
@@ -22,12 +21,18 @@ export const ArticleTemplate = ({
   const ArticleContent = contentComponent || Content
 
   const Article = styled.article`
+    p {
+      line-height: 1.7em;
+      font-weight: 400;
+    }
+
     .post-citation {
       display: block;
       margin: 10px 0;
       width: 100%;
       text-align: center;
       font-size: 15px;
+      font-weight: 300;
       color: ${colors.grayText};
       span {
         margin: 0;
@@ -63,7 +68,6 @@ export const ArticleTemplate = ({
               <span>by <a href="http://" rel="author">{author}</a></span>
               <p><time>{date}</time></p>
             </div>
-            <p>{description}</p>
             <ArticleContent content={content} />
             <PostTags tags={tags} />
           </div>
@@ -79,8 +83,11 @@ const Article = ({ data }) => {
     <ArticleTemplate
       content={post.html}
       contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} | Articles`} />}
+      helmet={
+      <Helmet>
+        <title>{`${post.frontmatter.title} | Articles`}</title>
+        <meta name="description" content={post.frontmatter.description}/>
+      </Helmet>}
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
       author={post.frontmatter.author}
