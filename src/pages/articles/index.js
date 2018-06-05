@@ -1,30 +1,12 @@
 import React from 'react'
-import ArticleExcerpt from '../../components/ArticleExcerpt'
+import PostList from '../../components/PostList'
 
-
-
-export default class ArticlesPage extends React.Component {
-  render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-
-    return (
-      <section>
-        <div className="container">
-          <h2 className="page-header">Articles</h2>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === 'article')
-            .map(({ node: post }) => (
-              <ArticleExcerpt key={post.id} post={post} />
-            ))}
-        </div>
-      </section>
-    )
-  }
-}
+const ArticlesPage = ({ data }) => (
+  <PostList data={data} title="Articles" templateKey="article" />
+)
 
 export const pageQuery = graphql`
-  query ArticlesQuery {
+  query ArticleQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
@@ -44,3 +26,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default ArticlesPage;

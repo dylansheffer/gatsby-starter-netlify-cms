@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import ArticleExcerpt from '../../components/ArticleExcerpt'
+import PostExcerpt from '../../components/PostExcerpt'
 
 export default class WebinarsPage extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class WebinarsPage extends React.Component {
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'webinar')
             .map(({ node: post }) => (
-              <ArticleExcerpt key={post.id} post={post} />
+              <PostExcerpt key={post.id} post={post} />
             ))}
         </div>
       </section>

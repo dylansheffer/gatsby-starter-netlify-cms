@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import DefaultPostImage from '../img/placeholder.svg'
 
-const ArticleExcerptListing = styled.article`
+const PostExcerptListing = styled.article`
     display: flex;
     flex-direction: column;
     margin: 50px 20px;
@@ -90,8 +90,8 @@ const ArticleExcerptListing = styled.article`
     }
 `
 
-const ArticleExcerpt = ({ post }) => (
-    <ArticleExcerptListing>
+const PostExcerpt = ({ post }) => (
+    <PostExcerptListing>
         <img className="featured-image" src={post.image || DefaultPostImage} alt=""/>
         <div className="article-content">
             <div className="article-heading">
@@ -103,7 +103,7 @@ const ArticleExcerpt = ({ post }) => (
             <p>{post.excerpt}</p>
             <Link className="button" to={post.fields.slug}>Keep Reading</Link>
         </div>
-    </ArticleExcerptListing>
+    </PostExcerptListing>
 )
 
-export default ArticleExcerpt;
+export default PostExcerpt;
