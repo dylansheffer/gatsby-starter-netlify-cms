@@ -88,7 +88,7 @@ let menuClosed = true;
 
 const NavLink = ({ to, activeStyle, faIcon, text }) => (
   <li>
-    <Link to={to} activeStyle={activeStyle}>
+    <Link to={to} activeStyle={activeStyle || {}}>
       <FontAwesomeIcon icon={faIcon} /> {text}
     </Link>
   </li>
