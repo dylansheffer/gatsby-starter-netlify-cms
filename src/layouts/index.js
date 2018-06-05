@@ -25,13 +25,21 @@ const GlobalStyles = styled.div`
     max-width: 100%;
   }
 
+  a {
+    color: ${colors.red};
+    :hover {
+      text-decoration: underline !important;
+      color: ${colors.lightRed};
+    }
+  }
+
   .container {
     max-width: 1024px;
     margin: 0 auto;
   }
 
   .page-header {
-    color: ${colors.grayText2};
+    color: ${colors.grayText};
     text-align: center;
     font-size: 40px;
     font-weight: 500;

@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components';
 
 import DefaultPostImage from '../img/placeholder.svg'
+import { colors } from '../style/branding'
 
 const PostExcerptListing = styled.article`
     display: flex;
@@ -28,12 +29,9 @@ const PostExcerptListing = styled.article`
             text-align: center;
             a {
             font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-            color: #536876;
+            color: ${colors.grayText};
             font-size: 24px;
             text-decoration: none;
-            &:hover {
-                text-decoration: underline;
-            }
             }
         }
         span {
@@ -47,14 +45,14 @@ const PostExcerptListing = styled.article`
         margin: auto 0 0;
         padding: 22px;
         display: block;
-        background-color: #be3532;
+        background-color: ${colors.red};
         color: white;
         text-align: center;
         text-decoration: none;
         transition: .5s all ease;
-        &:hover {
-            background-color: #d15452;
-            text-decoration: underline;
+        :hover {
+            color: ${colors.lightText};
+            background-color: ${colors.lightRed};
         }
     }
     @media only screen and (min-width: 900px) {

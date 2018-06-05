@@ -51,7 +51,7 @@ const Navigation = styled.nav`
         align-items: center;
 
         &:hover {
-          background: ${colors.redColor} !important;
+          background: ${colors.red} !important;
         }
 
         svg {
@@ -108,11 +108,11 @@ const Navbar = () => (
       </div>
       <ul id="menu" className="closed">
         <NavLink to="/" faIcon={faHome} text="Home" />
-        <NavLink to="/courses" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faListUl} text="Courses" />
-        <NavLink to="/consulting" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faBriefcase} text="Consulting" />
-        <NavLink to="/articles" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faFile} text="Articles" />
-        <NavLink to="/webinars" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faVideo} text="Webinars" />
-        <NavLink to="/about" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faUsers} text="About Us" />
+        <NavLink to="/courses" activeStyle={{backgroundColor: colors.gray}} faIcon={faListUl} text="Courses" />
+        <NavLink to="/consulting" activeStyle={{backgroundColor: colors.gray}} faIcon={faBriefcase} text="Consulting" />
+        <NavLink to="/articles" activeStyle={{backgroundColor: colors.gray}} faIcon={faFile} text="Articles" />
+        <NavLink to="/webinars" activeStyle={{backgroundColor: colors.gray}} faIcon={faVideo} text="Webinars" />
+        <NavLink to="/about" activeStyle={{backgroundColor: colors.gray}} faIcon={faUsers} text="About Us" />
       </ul>
     </div>
   </Navigation>

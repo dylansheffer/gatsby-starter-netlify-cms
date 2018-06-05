@@ -28,16 +28,13 @@ export const ArticleTemplate = ({
       width: 100%;
       text-align: center;
       font-size: 15px;
-      color: ${colors.grayText2};
+      color: ${colors.grayText};
       span {
         margin: 0;
         padding: 0 30px;
         a {
           text-decoration: none;
-          color: ${colors.grayText2};
-          :hover {
-            text-decoration: underline;
-          }
+          color: ${colors.grayText};
         }
       }
       time {
