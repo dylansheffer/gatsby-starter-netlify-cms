@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import {PageHeader, ArticleExcerpt as WebinarExcerpt} from '../../style/articleExcerpt'
-
-import DefaultPostImage from '../../img/placeholder.svg'
+import ArticleExcerpt from '../../components/ArticleExcerpt'
 
 export default class WebinarsPage extends React.Component {
   render() {
@@ -12,33 +10,11 @@ export default class WebinarsPage extends React.Component {
     return (
       <section>
         <div className="container">
-          <div>
-            <PageHeader>Latest Webinars</PageHeader>
-          </div>
+          <h2 className="page-header">Latest Webinars</h2>
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'webinar')
             .map(({ node: post }) => (
-              <WebinarExcerpt key={post.id}>
-                <img className="featured-image" src={post.image || DefaultPostImage} alt=""/>
-                <div className="article-content">
-                  <div className="article-heading">
-                    <h2>
-                      <Link to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                    </h2>
-                    <span>
-                      {post.frontmatter.date}
-                    </span>
-                  </div>
-                  <p>
-                    {post.excerpt}
-                  </p>
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading
-                  </Link>
-                </div>
-              </WebinarExcerpt>
+              <ArticleExcerpt key={post.id} post={post} />
             ))}
         </div>
       </section>

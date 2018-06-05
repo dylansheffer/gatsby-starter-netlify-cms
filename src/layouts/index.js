@@ -29,6 +29,13 @@ const GlobalStyles = styled.div`
     max-width: 1024px;
     margin: 0 auto;
   }
+
+  .page-header {
+    color: #536876;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
 `
 
 const TemplateWrapper = ({ children }) => (
