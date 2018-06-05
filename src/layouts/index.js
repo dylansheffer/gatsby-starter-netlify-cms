@@ -31,9 +31,9 @@ const GlobalStyles = styled.div`
   }
 
   .page-header {
-    color: #536876;
+    color: ${colors.grayText2};
     text-align: center;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 500;
   }
 `

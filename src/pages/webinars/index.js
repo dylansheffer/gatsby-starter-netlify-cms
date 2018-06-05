@@ -1,26 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import PostExcerpt from '../../components/PostExcerpt'
+import PostList from '../../components/PostList'
 
-export default class WebinarsPage extends React.Component {
-  render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-
-    return (
-      <section>
-        <div className="container">
-          <h2 className="page-header">Latest Webinars</h2>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === 'webinar')
-            .map(({ node: post }) => (
-              <PostExcerpt key={post.id} post={post} />
-            ))}
-        </div>
-      </section>
-    )
-  }
-}
+const WebinarsPage = ({ data }) => (
+  <PostList data={data} title="Latest Webinars" templateKey="webinar" />
+)
 
 export const pageQuery = graphql`
   query WebinarsQuery {
@@ -42,3 +25,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default WebinarsPage;

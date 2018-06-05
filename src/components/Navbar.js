@@ -4,12 +4,14 @@ import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHome, faListUl, faBriefcase, faFile, faUsers, faVideo, faBars }  from '@fortawesome/fontawesome-free-solid'
 
+import { colors } from '../style/branding'
+
 const MinNavHeight = "60";
 
 const Navigation = styled.nav`
   background: black;
   width: 100%;
-  
+
   .nav-container {
     min-height: ${MinNavHeight}px;
     display: flex;
@@ -47,11 +49,11 @@ const Navigation = styled.nav`
         letter-spacing: .1em;
         display: flex;
         align-items: center;
-        
+
         &:hover {
-          background: #be3532 !important;
+          background: ${colors.redColor} !important;
         }
-        
+
         svg {
           padding-right: .3em;
         }
@@ -80,9 +82,17 @@ const Navigation = styled.nav`
     }
   }
   `
-  
-  
+
+
 let menuClosed = true;
+
+const NavLink = ({ to, activeStyle, faIcon, text }) => (
+  <li>
+    <Link to={to} activeStyle={activeStyle}>
+      <FontAwesomeIcon icon={faIcon} /> {text}
+    </Link>
+  </li>
+)
 
 const Navbar = () => (
   <Navigation>
@@ -97,36 +107,12 @@ const Navbar = () => (
         </button>
       </div>
       <ul id="menu" className="closed">
-        <li>
-          <Link to="/">
-            <FontAwesomeIcon icon={faHome} /> Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/courses" activeStyle={{backgroundColor: '#3e5463'}}>
-            <FontAwesomeIcon icon={faListUl} /> Courses
-          </Link>
-        </li>
-        <li>
-          <Link to="/consulting" activeStyle={{backgroundColor: '#3e5463'}}>
-            <FontAwesomeIcon icon={faBriefcase} /> Consulting
-          </Link>
-        </li>
-        <li>
-          <Link to="/articles" activeStyle={{backgroundColor: '#3e5463'}}>
-            <FontAwesomeIcon icon={faFile} /> Articles
-          </Link>
-        </li>
-        <li>
-          <Link to="/webinars" activeStyle={{backgroundColor: '#3e5463'}}>
-            <FontAwesomeIcon icon={faVideo} /> Webinars
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" activeStyle={{backgroundColor: '#3e5463'}}>
-            <FontAwesomeIcon icon={faUsers} /> About Us
-          </Link>
-        </li>
+        <NavLink to="/" faIcon={faHome} text="Home" />
+        <NavLink to="/courses" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faListUl} text="Courses" />
+        <NavLink to="/consulting" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faBriefcase} text="Consulting" />
+        <NavLink to="/articles" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faFile} text="Articles" />
+        <NavLink to="/webinars" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faVideo} text="Webinars" />
+        <NavLink to="/about" activeStyle={{backgroundColor: colors.grayColor}} faIcon={faUsers} text="About Us" />
       </ul>
     </div>
   </Navigation>
