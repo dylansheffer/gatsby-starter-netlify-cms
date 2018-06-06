@@ -25,13 +25,11 @@ This conference is one of the crowning achievements of my career. I do not belie
 
 RevolutionConf is a “technology agnostic” conference. What does that mean?
 
-**You are not defined by your stack.
-**
+**You are not defined by your stack.**
 
 If you sling code, or want to sling code, we love you and you are a respected member of this community.
 
-**You have skills and stories that others could benefit from.
-**
+**You have skills and stories that others could benefit from.**
 
 Learning how to solve a problem in another programming language or framework can greatly benefit how you solve problems in your daily language of choice. Or you might learn that something that would take you 10 hours to build in Java only take 10 minutes in Python.
 
@@ -162,8 +160,6 @@ Our plan was to rent/borrow the hotel shuttle to get everyone there safely. In f
 To accommodate the safety of our “VIPs”, three of us deployed Lyft and Uber to call and reserve cars for our guests. Within about 20-30 minutes, everyone was safely at the dinner venue.
 
 Next year, we plan to rent a party bus or trolley (this IS Virginia Beach, afterall) to take everyone where they need to go. Now we know :)
-
-
 
 ## Kicking off Next Year
 
