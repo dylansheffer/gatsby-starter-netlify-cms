@@ -39,11 +39,18 @@ const GlobalStyles = styled.div`
     margin: 0 auto;
   }
 
-  .page-header {
+  .page-header, h1, h2 {
     color: ${colors.grayText};
-    text-align: center;
-    font-size: 40px;
     font-weight: 500;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 24px;
   }
 `
 

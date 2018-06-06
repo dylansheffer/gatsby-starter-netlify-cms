@@ -10,8 +10,6 @@ tags:
 description: Description of the Udacity Project
 ---
 
-# Project Restaurant Reviews App Stage 1
-
 ## Project Overview
 
 ![Alt Text](http://placehold.it/2000x300 "Image Title")

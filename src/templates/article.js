@@ -59,7 +59,6 @@ export const ArticleTemplate = ({
     <Article>
       {helmet || ''}
       <div className="container">
-          <div>
           <Link to="/articles">Back to Article List</Link>
             <h1 className="page-header">
               {title}
@@ -70,7 +69,6 @@ export const ArticleTemplate = ({
             </div>
             <ArticleContent content={content} />
             <PostTags tags={tags} />
-          </div>
       </div>
     </Article>
   )
