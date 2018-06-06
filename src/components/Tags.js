@@ -21,6 +21,7 @@ const TagListStyle = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-evenly;
+  padding: 0;
   li {
     a {
       text-decoration: underline;
@@ -41,7 +42,7 @@ export const TagList = ({tags}) => {
     return null
   }
 }
-  
+
 export const Tag = ({tag}) => {
   if (tag) {
     return (

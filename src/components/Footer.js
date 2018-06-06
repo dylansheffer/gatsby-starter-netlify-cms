@@ -16,7 +16,7 @@ const FooterStyle = styled.footer`
 
     .copyright {
         font-size: .8em;
-        color: ${colors.grayText};
+        color: ${colors.gray};
         text-align: center;
         width: 80%;
         margin: 10px auto;
@@ -25,7 +25,7 @@ const FooterStyle = styled.footer`
 `
 
 const Social = styled.div`
-    h2 {
+    .social-header {
         color: ${colors.red};
         font-weight: 400;
         text-align: center;
@@ -58,7 +58,7 @@ const Footer = () => (
     <FooterStyle>
         <div className="container">
             <Social>
-                <h2>Connect With Us</h2>
+                <h2 className="social-header">Connect With Us</h2>
                 <div className="social-list">
                     <a className="social-icon" href="mailto:info@swiftkick.in">
                         <FontAwesomeIcon icon={faEnvelope} size="2x" />

@@ -20,10 +20,32 @@ const GlobalStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${colors.grayText};
+  color: ${colors.gray};
 
   img {
     max-width: 100%;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: ${colors.lightGray};
+  }
+
+  p {
+    font-size: 16px;
   }
 
   a {
@@ -35,22 +57,13 @@ const GlobalStyles = styled.div`
   }
 
   .container {
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   .page-header, h1, h2 {
-    color: ${colors.grayText};
+    color: ${colors.gray};
     font-weight: 500;
-  }
-
-  h1 {
-    font-size: 40px;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 24px;
   }
 `
 

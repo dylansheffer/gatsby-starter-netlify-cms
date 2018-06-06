@@ -60,7 +60,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     tags.forEach(tag => {
       if(tag) {
         const tagPath = `/tags/${_.kebabCase(tag)}/`
-  
+
         createPage({
           path: tagPath,
           component: path.resolve(`src/templates/tags.js`),
@@ -70,6 +70,33 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         })
       }
     })
+
+    // TODO: Generate Author Pages
+    // // Author pages:
+    // let authors = []
+    // // Iterate through each post, putting all found authors into `authors`
+    // posts.forEach(edge => {
+    //   if (_.get(edge, `node.frontmatter.author`)) {
+    //     authors = authors.concat(edge.node.frontmatter.author)
+    //   }
+    // })
+    // // Eliminate duplicate authors
+    // authors = _.uniq(authors)
+
+    // // Make author pages
+    // authors.forEach(author => {
+    //   if(author) {
+    //     const authorPath = `/authors/${_.kebabCase(author)}/`
+
+    //     createPage({
+    //       path: authorPath,
+    //       component: path.resolve(`src/templates/tags.js`),
+    //       context: {
+    //         author,
+    //       },
+    //     })
+    //   }
+    // })
   })
 }
 

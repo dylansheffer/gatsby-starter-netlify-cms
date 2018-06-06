@@ -25,7 +25,7 @@ const PostExcerptListing = styled.article`
             text-align: center;
             a {
             font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-            color: ${colors.grayText};
+            color: ${colors.gray};
             font-size: 24px;
             text-decoration: none;
             }

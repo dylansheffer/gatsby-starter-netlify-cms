@@ -28,8 +28,6 @@ const HeroStyle = styled.div`
         display: block;
         .hero-container {
             display: flex;
-            // align-items: center;
-            // justify-content: center;
         }
     }
 `
