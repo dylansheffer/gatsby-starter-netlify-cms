@@ -3,12 +3,14 @@ import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
+import Container from '../../components/Container'
+
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
 }) => (
   <section className="section">
     <Helmet title={`Tags | ${title}`} />
-    <div className="container content">
+    <Container>
       <div className="columns">
         <div
           className="column is-10 is-offset-1"
@@ -26,7 +28,7 @@ const TagsPage = ({
           </ul>
         </div>
       </div>
-    </div>
+    </Container>
   </section>
 )
 

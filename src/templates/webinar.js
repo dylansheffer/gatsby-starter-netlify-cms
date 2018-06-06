@@ -7,6 +7,7 @@ import Content, { HTMLContent } from '../components/Content'
 import PostTags from '../components/Tags'
 
 import { colors } from '../style/branding'
+import Container from '../components/Container'
 
 export const WebinarTemplate = ({
   content,
@@ -114,7 +115,7 @@ export const WebinarTemplate = ({
   return (
     <Webinar>
       {helmet || ''}
-      <div className="container">
+      <Container>
         <Link className="bread-crumb" to="/webinars">Back to Webinar List</Link>
             <h1 className="page-header">
               {title}
@@ -127,7 +128,7 @@ export const WebinarTemplate = ({
             </div>
             <WebinarContent content={content} />
             <PostTags tags={tags} />
-      </div>
+      </Container>
     </Webinar>
   )
 }

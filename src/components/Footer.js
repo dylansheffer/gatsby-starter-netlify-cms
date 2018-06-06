@@ -6,11 +6,13 @@ import { faFacebook, faTwitter, faLinkedin }  from '@fortawesome/fontawesome-fre
 import { faEnvelope }  from '@fortawesome/fontawesome-free-solid'
 
 import { colors } from '../style/branding'
+import Container from '../components/Container'
 
 const FooterStyle = styled.footer`
     background: black;
     color: white;
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
 
@@ -56,7 +58,7 @@ const Social = styled.div`
 
 const Footer = () => (
     <FooterStyle>
-        <div className="container">
+        <Container>
             <Social>
                 <h2 className="social-header">Connect With Us</h2>
                 <div className="social-list">
@@ -75,7 +77,7 @@ const Footer = () => (
                 </div>
             </Social>
             <p className="copyright" >Swift Kick provides software training and consulting services. We are based in Chesapeake, VA.</p>
-        </div>
+        </Container>
     </FooterStyle>
 )
 

@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import { colors } from '../style/branding'
 import Content, { HTMLContent } from '../components/Content'
 import PostTags from '../components/Tags'
+import Container from '../components/Container'
 
 export const ArticleTemplate = ({
   content,
@@ -115,7 +116,7 @@ export const ArticleTemplate = ({
   return (
     <Article>
       {helmet || ''}
-      <div className="container">
+      <Container>
           <Link className="bread-crumb" to="/articles">Back to Article List</Link>
             <h1 className="page-header">
               {title}
@@ -128,7 +129,7 @@ export const ArticleTemplate = ({
             </div>
             <ArticleContent className="post-content" content={content} />
             <PostTags tags={tags} />
-      </div>
+      </Container>
     </Article>
   )
 }

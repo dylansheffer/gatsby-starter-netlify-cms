@@ -1,8 +1,12 @@
 import React from 'react'
-import PostList from '../../components/PostList'
+
+import PostList from '../../components/PostList';
+import Container from '../../components/Container';
 
 const ArticlesPage = ({ data }) => (
-  <PostList data={data} title="Articles" templateKey="article" />
+    <Container>
+      <PostList data={data} title="Articles" templateKey="article" />
+    </Container>
 )
 
 export const pageQuery = graphql`

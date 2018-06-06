@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import DefaultPostImage from '../img/placeholder.svg'
 import { colors } from '../style/branding'
+import LinkButton from '../components/LinkButton'
 
 const PostExcerptListing = styled.article`
     display: flex;
@@ -100,7 +101,7 @@ const PostExcerpt = ({ post }) => (
                 <span>{post.frontmatter.date}</span>
             </div>
             <p>{post.excerpt}</p>
-            <Link className="button" to={post.fields.slug}>Keep Reading</Link>
+            <LinkButton className="button" to={post.fields.slug}>Keep Reading</LinkButton>
         </div>
     </PostExcerptListing>
 )

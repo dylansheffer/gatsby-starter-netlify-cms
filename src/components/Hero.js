@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import BackgroundImage from '../img/hero.jpeg'
 import Logo from '../img/logo.svg'
+import Container from '../components/Container'
 
 const HeroStyle = styled.div`
     display: none;
@@ -34,9 +35,11 @@ const HeroStyle = styled.div`
 
 const Hero = () => (
   <HeroStyle>
-      <div className="container hero-container">
-        <img className="logo" src={Logo} alt="SwiftKick Logo"/>
-      </div>
+      <Container>
+        <div className="hero-container">
+            <img className="logo" src={Logo} alt="SwiftKick Logo"/>
+        </div>
+      </Container>
   </HeroStyle>
 )
 

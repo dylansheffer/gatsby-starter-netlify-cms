@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Container from '../components/Container'
+
 export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
@@ -8,7 +10,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <section className="section">
-        <div className="container">
+        <Container>
           <div className="content">
             <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
           </div>
@@ -37,7 +39,7 @@ export default class IndexPage extends React.Component {
                 </p>
               </div>
             ))}
-        </div>
+        </Container>
       </section>
     )
   }

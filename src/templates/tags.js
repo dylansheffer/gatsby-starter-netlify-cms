@@ -2,6 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
+import Container from '../components/Container'
+
 class TagRoute extends React.Component {
   render() {
     if (this.props.pathContext.tag) {
@@ -19,11 +21,11 @@ class TagRoute extends React.Component {
         const tagHeader = `${totalCount} post${
           totalCount === 1 ? '' : 's'
         } tagged with “${tag}”`
-    
+
         return (
           <section className="section">
             <Helmet title={`${tag} | ${title}`} />
-            <div className="container content">
+            <Container>
               <div className="columns">
                 <div
                   className="column is-10 is-offset-1"
@@ -36,7 +38,7 @@ class TagRoute extends React.Component {
                   </p>
                 </div>
               </div>
-            </div>
+            </Container>
           </section>
         )
       }
