@@ -10,10 +10,6 @@ const PostExcerptListing = styled.article`
     flex-direction: column;
     margin: 50px 20px;
 
-    .featured-image {
-        width: 100%;
-    }
-
     .article-content {
         display: flex;
         flex-direction: column;
@@ -39,6 +35,14 @@ const PostExcerptListing = styled.article`
         }
     }
 
+    .post-image {
+        background-size: cover;
+        width: 300px;
+        height: 250px;
+        align-self: center;
+        margin: auto 0;
+    }
+
     .button {
         width: 220px;
         border-radius: 80px;
@@ -59,16 +63,13 @@ const PostExcerptListing = styled.article`
         flex-direction: row;
         height: 250px;
 
-        .featured-image {
-            width: auto;
-            height: 100%;
+        .post-image {
             margin-right: 50px;
-            align-self: center;
         }
 
         .article-content {
             align-items: normal;
-            width: 100%;
+            width: calc(100% - 300px);
             height: 100%;
         }
 
@@ -90,7 +91,7 @@ const PostExcerptListing = styled.article`
 
 const PostExcerpt = ({ post }) => (
     <PostExcerptListing>
-        <img className="featured-image" src={post.frontmatter.image || DefaultPostImage} alt=""/>
+        <div className="post-image"style={{backgroundImage: `url(${post.frontmatter.image || DefaultPostImage})`}}></div>
         <div className="article-content">
             <div className="article-heading">
                 <h2>
