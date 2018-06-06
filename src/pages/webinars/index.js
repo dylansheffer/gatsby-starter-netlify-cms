@@ -1,8 +1,26 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import PostList from '../../components/PostList'
+import Sidebar from '../../components/Sidebar';
+import SidebarLayout from '../../components/SidebarLayout';
+import UpcomingWebinar from '../../components/UpcomingWebinar';
+import Container from '../../components/Container';
+
 
 const WebinarsPage = ({ data }) => (
-  <PostList data={data} title="Latest Webinars" templateKey="webinar" />
+  <Container>
+    <SidebarLayout>
+      <Sidebar>
+
+        {/* TODO: Think about making the Upcoming Webinar the top webinar listing */}
+        <UpcomingWebinar title="A Test Webinar" date="June 6, 2018">
+
+        </UpcomingWebinar>
+      </Sidebar>
+      <PostList data={data} title="Latest Webinars" templateKey="webinar" />
+    </SidebarLayout>
+  </Container>
 )
 
 export const pageQuery = graphql`

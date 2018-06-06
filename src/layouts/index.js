@@ -83,6 +83,10 @@ a {
   color: ${colors.gray};
   font-weight: 500;
 }
+
+.page-header {
+  height: 46px;
+}
 `
 
 export default TemplateWrapper
