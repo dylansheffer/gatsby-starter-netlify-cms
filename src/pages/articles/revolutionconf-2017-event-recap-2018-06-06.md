@@ -33,8 +33,7 @@ If you sling code, or want to sling code, we love you and you are a respected me
 
 Learning how to solve a problem in another programming language or framework can greatly benefit how you solve problems in your daily language of choice. Or you might learn that something that would take you 10 hours to build in Java only take 10 minutes in Python.
 
-**Every session needs something for everyone
-**
+**Every session needs something for everyone**
 
 This is the hardest thing to do. We urged our speakers to consider topics that would apply to anyone that walked in the door. Even though a topic might be on “Azure” - it shouldn’t require five years of Azure experience to understand.
 
