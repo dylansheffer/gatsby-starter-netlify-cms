@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Link from 'gatsby-link';
 
 import { colors } from '../style/branding'
 
