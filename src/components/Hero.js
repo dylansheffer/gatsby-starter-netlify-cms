@@ -7,7 +7,6 @@ import Logo from '../img/logo.svg'
 import Container from '../components/Container'
 
 const HeroStyle = styled.div`
-    display: none;
     width: 100%;
     background: linear-gradient(
         rgba(20,20,20, .8),
@@ -16,28 +15,25 @@ const HeroStyle = styled.div`
     background-size: cover;
 
     .hero-container {
-        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         max-height: 700px;
+        padding: 30px;
     }
 
     .logo {
         max-height: 150px;
         margin: auto;
     }
-
-    @media only screen and (min-width: 650px) {
-        display: block;
-        .hero-container {
-            display: flex;
-        }
-    }
 `
 
-const Hero = () => (
+const Hero = (props) => (
   <HeroStyle>
       <Container>
         <div className="hero-container">
             <img className="logo" src={Logo} alt="SwiftKick Logo"/>
+            {props.children}
         </div>
       </Container>
   </HeroStyle>

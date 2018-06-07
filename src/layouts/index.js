@@ -10,6 +10,8 @@ import { colors, text } from '../style/branding'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
+import Tagline from '../components/Tagline'
+import LinkButton from '../components/LinkButton'
 
 // Manually imported Font Awesome CSS to fix server-side rendering
 fontawesome.config = {
@@ -26,7 +28,14 @@ const TemplateWrapper = ({ children }) => (
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
     </Helmet>
     <Navbar />
-    <Hero />
+     {location.pathname === "/" ? (
+        <Hero>
+          <Tagline>Swift Kick gives busy development teams necessary training and resources to keep up with the latest technology.</Tagline>
+          <LinkButton to="/courses">Our Courses</LinkButton>
+        </Hero>
+      ) : (
+        <Hero />
+      )}
     <div>{children()}</div>
     <Footer />
   </Root>
