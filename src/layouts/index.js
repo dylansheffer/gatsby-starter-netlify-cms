@@ -30,7 +30,9 @@ const TemplateWrapper = ({ children }) => (
     <Navbar />
      {location.pathname === "/" ? (
         <Hero>
-          <Tagline>Swift Kick gives busy development teams necessary training and resources to keep up with the latest technology.</Tagline>
+          <Tagline color={colors.lightText}>
+            Swift Kick gives busy development teams necessary training and resources to keep up with the latest technology.
+          </Tagline>
           <LinkButton to="/courses">Our Courses</LinkButton>
         </Hero>
       ) : (

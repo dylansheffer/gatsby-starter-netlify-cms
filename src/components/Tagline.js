@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../style/branding'
 
 const Tagline = styled.p`
-    color: ${colors.lightText};
+    color: ${props => props.color ? props.color : colors.darkText};
     text-align: center;
     font-size: 20px;
     font-weight: 300;

@@ -6,6 +6,8 @@ import BackgroundImage from '../img/hero.jpeg'
 import Logo from '../img/logo.svg'
 import Container from '../components/Container'
 
+const desktopHeroHeight = 220;
+
 const HeroStyle = styled.div`
     width: 100%;
     background: linear-gradient(
@@ -18,7 +20,7 @@ const HeroStyle = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-height: 700px;
+        justify-content: center;
         padding: 30px;
     }
 
@@ -26,16 +28,22 @@ const HeroStyle = styled.div`
         max-height: 150px;
         margin: auto;
     }
+    @media only screen and (min-width: 650px) {
+        min-height: ${desktopHeroHeight}px;
+        .hero-container {
+            min-height: ${desktopHeroHeight}px;
+        }
+    }
 `
 
 const Hero = (props) => (
   <HeroStyle>
-      <Container>
-        <div className="hero-container">
-            <img className="logo" src={Logo} alt="SwiftKick Logo"/>
-            {props.children}
-        </div>
-      </Container>
+    <Container>
+      <div className="hero-container">
+        <img className="logo" src={Logo} alt="SwiftKick Logo"/>
+        {props.children}
+      </div>
+    </Container>
   </HeroStyle>
 )
 
