@@ -1,8 +1,9 @@
 import React from 'react'
+import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import { colors } from '../style/branding'
-import LinkButton from './LinkButton';
+import Button from './Button';
 
 const UpcomingWebinarSection = styled.section`
     display: flex;
@@ -24,7 +25,9 @@ const UpcomingWebinar = ({title, date, ...props}) => (
         <h1>Upcoming Webinar</h1>
         <h2>{title}</h2>
         <time>{date}</time>
-        <LinkButton to="/">Register</LinkButton>
+        <Button>
+            <Link to="/">Register</Link>
+        </Button>
         {props.children}
     </UpcomingWebinarSection>
 )

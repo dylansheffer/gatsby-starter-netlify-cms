@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import DefaultPostImage from '../img/placeholder.svg'
 import { colors } from '../style/branding'
-import LinkButton from '../components/LinkButton'
+import Button from '../components/Button'
 
 const PostExcerptListing = styled.article`
     display: flex;
@@ -36,6 +36,10 @@ const PostExcerptListing = styled.article`
         }
     }
 
+    .button {
+        margin: auto 0 0;
+    }
+
     .post-image {
         background-size: cover;
         width: 300px;
@@ -44,22 +48,6 @@ const PostExcerptListing = styled.article`
         margin: auto 0;
     }
 
-    .button {
-        width: 220px;
-        border-radius: 80px;
-        margin: auto 0 0;
-        padding: 22px;
-        display: block;
-        background-color: ${colors.red};
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        transition: .5s all ease;
-        :hover {
-            color: ${colors.lightText};
-            background-color: ${colors.lightRed};
-        }
-    }
     @media only screen and (min-width: 900px) {
         flex-direction: row;
         height: 250px;
@@ -101,7 +89,9 @@ const PostExcerpt = ({ post }) => (
                 <span>{post.frontmatter.date}</span>
             </div>
             <p>{post.excerpt}</p>
-            <LinkButton className="button" to={post.fields.slug}>Keep Reading</LinkButton>
+            <Button className="button">
+                <Link to={post.fields.slug}>Keep Reading</Link>
+            </Button>
         </div>
     </PostExcerptListing>
 )

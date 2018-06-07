@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styledNormalize from 'styled-normalize'
 import styled, { injectGlobal } from 'styled-components'
@@ -11,7 +12,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Tagline from '../components/Tagline'
-import LinkButton from '../components/LinkButton'
+import Button from '../components/Button'
 
 // Manually imported Font Awesome CSS to fix server-side rendering
 fontawesome.config = {
@@ -33,7 +34,9 @@ const TemplateWrapper = ({ children }) => (
           <Tagline color={colors.lightText}>
             Swift Kick gives busy development teams necessary training and resources to keep up with the latest technology.
           </Tagline>
-          <LinkButton to="/courses">Our Courses</LinkButton>
+          <Button>
+            <Link to="/courses">Our Courses</Link>
+          </Button>
         </Hero>
       ) : (
         <Hero />
