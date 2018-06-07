@@ -22,7 +22,7 @@ fontawesome.config = {
 const Root = styled.div`
 `
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, location }) => (
   <Root>
     <Helmet>
       <title>Swift Kick</title>
