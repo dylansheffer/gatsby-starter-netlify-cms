@@ -8,6 +8,8 @@ const Tagline = styled.p`
     font-size: 20px;
     font-weight: 300;
     max-width: 850px;
+    margin: auto;
+    padding: 20px;
 
     @media only screen and (min-width: 650px) {
         font-size: 25px;

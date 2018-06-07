@@ -1,7 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import { colors } from '../style/branding'
 import Container from '../components/Container'
+import Tagline from '../components/Tagline'
+import VisuallyHidden from '../components/VisuallyHidden'
+import FlexContainer from '../components/FlexContainer'
+import PageSection from '../components/PageSection'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -9,38 +14,18 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <section className="section">
+      <PageSection backgroundColor={colors.offWhite}>
         <Container>
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-          </div>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === 'article')
-            .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={post.id}
-              >
-                <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </div>
-            ))}
+          <FlexContainer flexDirection="column">
+            <VisuallyHidden>
+              <h1>Training Services</h1>
+            </VisuallyHidden>
+            <Tagline>
+              Technology moves fast. Does your team have the resources they need to keep up, or will your projects fall behind?
+            </Tagline>
+          </FlexContainer>
         </Container>
-      </section>
+      </PageSection>
     )
   }
 }
