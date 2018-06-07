@@ -5,6 +5,7 @@ const FlexContainer = styled.div`
     flex-direction: ${props => props.flexDirection ? props.flexDirection : 'row'};
     justify-content: center;
     align-content: center;
+    flex-wrap: wrap;
 `
 
 export default FlexContainer

@@ -3,10 +3,21 @@ import Link from 'gatsby-link';
 
 import { colors } from '../style/branding'
 
+const small = {
+    width: 150,
+    height: 45
+};
+const large = {
+    width: 220,
+    height: 53
+};
+
 const Button = styled.span`
     a, button {
         border-radius: 80px;
-        padding: 22px;
+        width: ${props => props.buttonSize == 'small' ? small.width : large.width}px;
+        height: ${props => props.buttonSize == 'small' ? small.height : large.height}px;
+        line-height: ${props => props.buttonSize == 'small' ? small.height : large.height}px;
         display: block;
         background-color: ${colors.red};
         color: ${colors.lightText};
@@ -20,13 +31,8 @@ const Button = styled.span`
         }
     }
 
-    a {
-        width: 220px;
-    }
-
     button {
         border: 0;
-        width: 264px;
     }
 `
 
