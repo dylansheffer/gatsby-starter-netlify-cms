@@ -11,16 +11,13 @@ import PageSection from '../components/PageSection'
 import CourseBox from '../components/CourseBox'
 import Button from '../components/Button'
 import Testimonial from '../components/Testimonial'
+import SectionHeading from '../components/SectionHeading'
 
 export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
-    const SectionHeading = styled.h1`
-      font-weight: 300;
-      font-size: 1.7em;
-    `
     return (
       <div>
         {/* Training Section */}

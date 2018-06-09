@@ -31,9 +31,8 @@ const Social = styled.div`
         color: ${colors.red};
         font-weight: 400;
         text-align: center;
-        margin: 20px auto;
         font-size: 1.5em;
-        margin: 30px auto 10px;
+        margin: 0 auto 10px;
         padding: 10px 0;
     }
 

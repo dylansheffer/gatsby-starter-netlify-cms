@@ -12,7 +12,7 @@ const large = {
 };
 
 const Button = styled.span`
-    a, button {
+    a, button, input {
         border-radius: 80px;
         width: ${props => props.buttonSize == 'small' ? small.width : large.width}px;
         height: ${props => props.buttonSize == 'small' ? small.height : large.height}px;
@@ -30,7 +30,7 @@ const Button = styled.span`
         }
     }
 
-    button {
+    button, input {
         border: 0;
     }
 `

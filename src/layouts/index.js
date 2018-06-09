@@ -13,6 +13,11 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Tagline from '../components/Tagline'
 import Button from '../components/Button'
+import Container from '../components/Container'
+import FlexContainer from '../components/FlexContainer'
+import PageSection from '../components/PageSection'
+import SectionHeading from '../components/SectionHeading'
+import NewsletterForm from '../components/NewsletterForm'
 
 // Manually imported Font Awesome CSS to fix server-side rendering
 fontawesome.config = {
@@ -42,6 +47,31 @@ const TemplateWrapper = ({ children, location }) => (
         <Hero />
       )}
     <div>{children()}</div>
+    {/* Newletter Section */}
+    <PageSection backgroundColor={colors.offWhite}>
+          <Container>
+            <FlexContainer flexDirection="column">
+              <h3 aria-hidden="true">Subscribe</h3>
+              <SectionHeading>
+                Stay up-to-date on our latest courses, articles and more!
+              </SectionHeading>
+              {/* <form action="">
+                <FlexContainer>
+                  <label htmlFor="name">Full Name:</label>
+                  <input type="text" id="name" name="user_name"/>
+                  <label htmlFor="mail">Email Address:</label>
+                  <input type="email" id="mail" name="user_mail" />
+                </FlexContainer>
+                <FlexContainer>
+                  <Button>
+                    <input type="submit" value="Send me updates"/>
+                  </Button>
+                </FlexContainer>
+              </form> */}
+              <NewsletterForm />
+            </FlexContainer>
+          </Container>
+        </PageSection>
     <Footer />
   </Root>
 )
