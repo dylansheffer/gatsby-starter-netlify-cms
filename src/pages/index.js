@@ -47,18 +47,11 @@ export default class IndexPage extends React.Component {
             <FlexContainer flexDirection="column">
               <SectionHeading>Testimonials</SectionHeading>
               <FlexContainer style={{margin: '20px 0'}}>
-                <Testimonial author="Homer Simpson">
-                  Heated and irritated as he was by his spasmodic toil at the pumps, for all his first nameless feeling of forbearance the sweating Steelkilt could but ill brook this bearing in the mate.
-                </Testimonial>
-                <Testimonial author="Homer Simpson">
-                  Heated and irritated as he was by his spasmodic toil at the pumps, for all his first nameless feeling of forbearance the sweating Steelkilt could but ill brook this bearing in the mate.
-                </Testimonial>
-                <Testimonial author="Homer Simpson">
-                  Heated and irritated as he was by his spasmodic toil at the pumps, for all his first nameless feeling of forbearance the sweating Steelkilt could but ill brook this bearing in the mate.
-                </Testimonial>
-                <Testimonial author="Homer Simpson">
-                  Heated and irritated as he was by his spasmodic toil at the pumps, for all his first nameless feeling of forbearance the sweating Steelkilt could but ill brook this bearing in the mate.
-                </Testimonial>
+                {data.allMarkdownRemark.edges
+                  .filter(testimonial => testimonial.node.frontmatter.templateKey == 'testimonial').slice(0, 4)
+                  .map(({ node: testimonial }) => (
+                  <Testimonial key={testimonial.id} data={testimonial} />
+                ))}
               </FlexContainer>
               <Button style={{alignSelf: 'center'}}><Link to="/testimonials">More Testimonials</Link></Button>
               </FlexContainer>
@@ -76,6 +69,7 @@ export const pageQuery = graphql`
         node {
           excerpt(pruneLength: 400)
           id
+          html
           fields {
             slug
           }
@@ -83,6 +77,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
+            author
           }
         }
       }

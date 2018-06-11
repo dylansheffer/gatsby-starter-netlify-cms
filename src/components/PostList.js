@@ -1,13 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import PostExcerpt from '../components/PostExcerpt'
 
-const PostListSection = styled.section`
-`
-
 const PostList = ({ data, title, templateKey, ...props}) => (
-  <PostListSection>
+  <section>
       <div>
         <h1 className="page-header">{title}</h1>
         {data.allMarkdownRemark.edges
@@ -17,7 +13,7 @@ const PostList = ({ data, title, templateKey, ...props}) => (
             ))}
       </div>
       {props.children}
-  </PostListSection>
+  </section>
 )
 
 
