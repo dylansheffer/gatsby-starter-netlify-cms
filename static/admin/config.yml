@@ -47,16 +47,16 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "SEO Description", name: "description", widget: "text"}
   - name: "course"
-    label: "courses"
+    label: "Courses"
     folder: "src/pages/courses"
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: Instructor, name: person, widget: object, fields: [{label: "Name", name: "name", widget: "string"}, {label: "Bio", name: "bio", widget: "string"}, {label: "Twitter", name: "twitter", widget: "string", required: false}, {label: "Email", name: "email", widget: "string", required: false}, {label: "Website", name: "website", widget: "string", required: false}, {label: "Github", name: "github", widget: "string", required: false}, {label: "LinkedIn", name: "linkedin", widget: "string", required: false}, {label: "Facebook", name: "facebook", widget: "string", required: false}]}
       - {label: "Length", name: "length", widget: "string"}
       - {label: "Objectives", name: "Objectives", widget: "list"}
+      - {label: Instructor, name: person, widget: object, fields: [{label: "Name", name: "name", widget: "string"}, {label: "Bio", name: "bio", widget: "string"}, {label: "Twitter", name: "twitter", widget: "string", required: false}, {label: "Email", name: "email", widget: "string", required: false}, {label: "Website", name: "website", widget: "string", required: false}, {label: "Github", name: "github", widget: "string", required: false}, {label: "LinkedIn", name: "linkedin", widget: "string", required: false}, {label: "Facebook", name: "facebook", widget: "string", required: false}]}
       - {label: "Outline", name: "Outline", widget: "list"}
       - {label: "Prerequisites", name: "Prerequisites", widget: "list"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
