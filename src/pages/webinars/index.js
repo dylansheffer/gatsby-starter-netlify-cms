@@ -11,13 +11,13 @@ import Container from '../../components/Container';
 const WebinarsPage = ({ data }) => (
   <Container>
     <SidebarLayout>
-      <Sidebar>
+      {/* <Sidebar> */}
 
         {/* TODO: Think about making the Upcoming Webinar the top webinar listing */}
-        <UpcomingWebinar title="A Test Webinar" date="June 6, 2018">
+        {/* <UpcomingWebinar title="A Test Webinar" date="June 6, 2018"> */}
 
-        </UpcomingWebinar>
-      </Sidebar>
+        {/* </UpcomingWebinar> */}
+      {/* </Sidebar> */}
       <PostList data={data} title="Latest Webinars" templateKey="webinar" />
     </SidebarLayout>
   </Container>

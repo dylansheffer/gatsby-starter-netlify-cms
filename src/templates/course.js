@@ -1,5 +1,4 @@
 import React from 'react'
-import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
@@ -7,7 +6,6 @@ import styled from 'styled-components'
 
 import { colors } from '../style/branding'
 import Content, { HTMLContent } from '../components/Content'
-import PostTags from '../components/Tags'
 import Container from '../components/Container'
 
 export const CourseTemplate = ({
@@ -118,12 +116,7 @@ export const CourseTemplate = ({
             <h1 className="page-header">
               {title}
             </h1>
-            {/* <div className="post-citation">
-              <span>by {author || "Author"}</span>
-              <p><time>{date}</time></p>
-            </div>
             <CourseContent className="post-content" content={content} />
-            <PostTags tags={tags} /> */}
       </Container>
     </Course>
   )
