@@ -6,7 +6,7 @@ import { colors } from '../style/branding'
 import FlexContainer from '../components/FlexContainer'
 import Button from '../components/Button'
 
-const CourseBoxContainer = styled.div`
+const HomeCardContainer = styled.div`
     flex: auto 1;
     width: 90%;
     margin: 30px;
@@ -28,7 +28,7 @@ const CourseBoxContainer = styled.div`
     }
 `
 
-const UpcomingCourseContainer = styled.div`
+const UpcomingEventContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,25 +66,39 @@ const UpcomingCourseContainer = styled.div`
     }
 `
 
-const CourseBox = ({ data, title, description, ...props}) => (
-  <CourseBoxContainer>
+export const CourseCard = ({ data, title, description, ...props}) => (
+  <HomeCardContainer>
     <FlexContainer flexDirection="column">
         <h2 className="page-header">{title}</h2>
         <p>{description}</p>
+        {props.children}
         {data ? (
-            <UpcomingCourseContainer>
+            <UpcomingEventContainer>
                 <Link to="/"><h3>{data.title}</h3></Link>
                 <p>{data.location}</p>
                 <p><time>{data.date}</time></p>
                 <Button className="register-button" buttonSize="small"><Link to="/">Register</Link></Button>
                 <a className="request-link" href="mailto:info@swiftkick.in">Request a workshop in my city</a>
-            </UpcomingCourseContainer>
+            </UpcomingEventContainer>
         ):null}
-        {props.children}
     </FlexContainer>
-  </CourseBoxContainer>
+  </HomeCardContainer>
 )
 
-
-
-export default CourseBox;
+export const SwiftKickShowCard = ({ data, title, description, ...props}) => (
+    <HomeCardContainer>
+        <FlexContainer flexDirection="column">
+            <h2 className="page-header">{title}</h2>
+            <p>{description}</p>
+            {props.children}
+            {data ? (
+            <UpcomingEventContainer>
+                <Link to="/"><h3>{data.title}</h3></Link>
+                <p>{data.speaker}</p>
+                <p><time>{data.date}</time> at <time>{data.time}</time></p>
+                <Button className="register-button" buttonSize="small"><Link to="/">Register</Link></Button>
+            </UpcomingEventContainer>
+        ):null}
+        </FlexContainer>
+    </HomeCardContainer>
+)

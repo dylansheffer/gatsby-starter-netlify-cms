@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Link from 'gatsby-link'
 
 import { colors } from '../style/branding'
@@ -8,7 +7,7 @@ import Tagline from '../components/Tagline'
 import VisuallyHidden from '../components/VisuallyHidden'
 import FlexContainer from '../components/FlexContainer'
 import PageSection from '../components/PageSection'
-import CourseBox from '../components/CourseBox'
+import { CourseCard, SwiftKickShowCard } from '../components/HomeCards'
 import Button from '../components/Button'
 import Testimonial from '../components/Testimonial'
 import SectionHeading from '../components/SectionHeading'
@@ -20,7 +19,6 @@ export default class IndexPage extends React.Component {
 
     return (
       <div>
-        {/* Training Section */}
         <PageSection backgroundColor={colors.offWhite}>
           <Container>
             <FlexContainer flexDirection="column">
@@ -31,11 +29,11 @@ export default class IndexPage extends React.Component {
                 Technology moves fast. Does your team have the resources they need to keep up, or will your projects fall behind?
               </Tagline>
               <FlexContainer style={{alignItems: "flex-start"}}>
-                <CourseBox title="Public Training" description="If you have a smaller team, the cost of providing customized training can be a limiting factor. Swift Kick offers public training courses throughout the United States." data={{title: "Docker Workshop", location: "Richmond, VA USA", date: "July 27-28, 2017"}}/>
+                <CourseCard title="Public Training" description="If you have a smaller team, the cost of providing customized training can be a limiting factor. Swift Kick offers public training courses throughout the United States." data={{title: "Docker Workshop", location: "Richmond, VA USA", date: "July 27-28, 2017"}}/>
 
-                <CourseBox title="Custom Training" description="For larger teams, we offer a variety of customized training curriculums. Contact us for more information about your needs.">
-                  <Button buttonSize="small" style={{alignSelf: 'center'}}><a href="mailto:info@swiftkick.in">Contact Us</a></Button>
-                </CourseBox>
+                <SwiftKickShowCard title="Swift Kick Show" description="The Swift Kick Show is a webinar series that brings in industry experts to share their knowledge for free." data={{title: "Speed and Stability in Mobile and Web", speaker: "Mike Rollins", date: "June 13, 2018", time: "2pm"}}>
+                  <Button buttonSize="small" style={{alignSelf: 'center'}}><a href="https://www.youtube.com/channel/UC3iCOs_7lQ85OWOy6lhy4_g/featured">View the Catalog</a></Button>
+                </SwiftKickShowCard>
               </FlexContainer>
             </FlexContainer>
           </Container>
