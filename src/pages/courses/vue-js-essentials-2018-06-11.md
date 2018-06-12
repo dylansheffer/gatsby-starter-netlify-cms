@@ -1,17 +1,28 @@
 ---
 templateKey: course
 title: Vue.js Essentials
-person:
-  bio: Lorem Ipsum
-  name: Kevin Griffin
-  twitter: 1kevgrif
-  image: /img/chemex.jpg
 length: 1 day
 objectives:
   - Students will learn how to build views with Vue.js
-  - Students will learn how to render out dynamic data such as data returned from external web services
-  - Students will learn how to listen for events and how to react accordingly when they occur
+  - >-
+    Students will learn how to render out dynamic data such as data returned
+    from external web services
+  - >-
+    Students will learn how to listen for events and how to react accordingly
+    when they occur
   - Students will learn how Vue.js fits into a larger web application ecosystem
+instructors:
+  - person:
+      avatar: /img/kevin.png
+      bio: >-
+        Training. Consulting. Community guy. If you don't know who I am, let's
+        grab a cup of coffee.
+      email: kevin@swiftkick.in
+      github: 1kevgriff
+      linkedin: 1kevgriff
+      name: Kevin Griffin
+      twitter: 1kevgriff
+      website: swiftkick.in
 outline:
   - What is Vue.js?
   - Creating a basic Vue.js application
