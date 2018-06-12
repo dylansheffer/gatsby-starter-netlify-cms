@@ -73,7 +73,7 @@ collections:
               - {label: Website, name: website, widget: string, required: false}
               - {label: Github, name: github, widget: string, required: false}
               - {label: LinkedIn, name: linkedin, widget: string, required: false}
-      - label: "Outline"
+      - label: "Course Outline"
         name: "outline"
         widget: "list"
         allow_add: true
