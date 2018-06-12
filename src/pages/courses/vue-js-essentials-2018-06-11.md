@@ -5,15 +5,14 @@ person:
   bio: Lorem Ipsum
   name: Kevin Griffin
   twitter: 1kevgrif
+  image: /img/chemex.jpg
 length: 1 day
-Objectives:
+objectives:
   - Students will learn how to build views with Vue.js
-  - Students will learn how to render out dynamic data
-  - such as data returned from external web services
-  - Students will learn how to listen for events
-  - and how to react accordingly when they occur
+  - Students will learn how to render out dynamic data such as data returned from external web services
+  - Students will learn how to listen for events and how to react accordingly when they occur
   - Students will learn how Vue.js fits into a larger web application ecosystem
-Outline:
+outline:
   - What is Vue.js?
   - Creating a basic Vue.js application
   - Building out a View
@@ -21,7 +20,7 @@ Outline:
   - Input Handling
   - Events
   - Workflow
-Prerequisites:
+prerequisites:
   - >-
     A text editor of choice. We use Visual Studio Code
     (https://code.visualstudio.com)

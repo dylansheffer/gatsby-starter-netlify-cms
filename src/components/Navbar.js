@@ -56,6 +56,7 @@ const Navigation = styled.nav`
 
         svg {
           padding-right: .3em;
+          font-size: 20px;
         }
       }
     }

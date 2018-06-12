@@ -86,8 +86,8 @@ const PostStyle = styled.article`
       margin-top: 25px;
     }
 
-    @media only screen and (min-width: 1024px) {
-      margin: 50px 0;
+    @media only screen and (min-width: 720px) {
+      margin: 20px;
 
       .bread-crumb {
         margin-bottom: 50px;
@@ -95,7 +95,7 @@ const PostStyle = styled.article`
 
       .post-content {
         margin-top: 40px;
-        padding: 0px;
+        padding: 20px;
       }
     }
   `
