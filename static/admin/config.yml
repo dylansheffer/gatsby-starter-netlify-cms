@@ -78,7 +78,7 @@ collections:
         widget: "object"
         fields:
           - {label: Objective, name: objective, widget: list, allow_add: true}
-            - field:
+            - fields:
               - {label: Objective, name: label, widget: string}
               - {label: Sub-Objective, name: sub_objective, widget: list, allow_add: true}
                 - {label: Sub-Objective, name: label, widget: string}
