@@ -50,15 +50,31 @@ collections:
     label: "Courses"
     folder: "src/pages/courses"
     create: true
-    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
+    slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Length", name: "length", widget: "string"}
-      - {label: "Objectives", name: "Objectives", widget: "list"}
-      - {label: Instructor, name: person, widget: object, fields: [{label: "Name", name: "name", widget: "string"}, {label: "Bio", name: "bio", widget: "string"}, {label: "Twitter", name: "twitter", widget: "string", required: false}, {label: "Email", name: "email", widget: "string", required: false}, {label: "Website", name: "website", widget: "string", required: false}, {label: "Github", name: "github", widget: "string", required: false}, {label: "LinkedIn", name: "linkedin", widget: "string", required: false}, {label: "Facebook", name: "facebook", widget: "string", required: false}]}
-      - {label: "Outline", name: "Outline", widget: "list"}
-      - {label: "Prerequisites", name: "Prerequisites", widget: "list"}
+      - {label: "Objectives", name: "objectives", widget: "list"}
+      - label: "Instructors"
+        name: "instructors"
+        widget: "list"
+        fields:
+          - label: Instructor
+            name: person
+            allow_add: true
+            widget: object
+            fields:
+              - {label: Name, name: name, widget: string, default: "Kevin Griffin"}
+              - {label: Avatar, name: avatar, widget: image}
+              - {label: Bio, name: bio, widget: string}
+              - {label: Twitter, name: twitter, widget: string}
+              - {label: Email, name: email, widget: string}
+              - {label: Website, name: website, widget: string}
+              - {label: Github, name: github, widget: string}
+              - {label: LinkedIn, name: linkedin, widget: string}
+      - {label: "Outline", name: "outline", widget: "list"}
+      - {label: "Prerequisites", name: "prerequisites", widget: "list"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
