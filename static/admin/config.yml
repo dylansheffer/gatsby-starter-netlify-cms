@@ -68,12 +68,19 @@ collections:
               - {label: Name, name: name, widget: string, default: "Kevin Griffin"}
               - {label: Avatar, name: avatar, widget: image}
               - {label: Bio, name: bio, widget: string}
-              - {label: Twitter, name: twitter, widget: string}
-              - {label: Email, name: email, widget: string}
-              - {label: Website, name: website, widget: string}
-              - {label: Github, name: github, widget: string}
-              - {label: LinkedIn, name: linkedin, widget: string}
-      - {label: "Outline", name: "outline", widget: "list"}
+              - {label: Twitter, name: twitter, widget: string, required: false}
+              - {label: Email, name: email, widget: string, required: false}
+              - {label: Website, name: website, widget: string, required: false}
+              - {label: Github, name: github, widget: string, required: false}
+              - {label: LinkedIn, name: linkedin, widget: string, required: false}
+      - label: "Outline"
+        name: "outline"
+        widget: "list"
+        allow_add: true
+        fields:
+          - {label: Objective, name: objective, widget: string}
+          - field:
+            - {label: Sub-Objective, name: sub_objective, widget: string, allow_add: true}
       - {label: "Prerequisites", name: "prerequisites", widget: "list"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
