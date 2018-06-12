@@ -55,7 +55,6 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Length", name: "length", widget: "string"}
-      - {label: "Objectives", name: "objectives", widget: "list"}
       - label: "Instructors"
         name: "instructors"
         widget: "list"
@@ -89,7 +88,16 @@ collections:
                 allow_add: true
                 fields:
                 - {label: Sub-Objective, name: value, widget: string}
-      - {label: "Prerequisites", name: "prerequisites", widget: "list"}
+      - label: "Prerequisites"
+        name: "prerequisites"
+        widget: "object"
+        fields:
+          - label: "Prerequisite"
+            name: objective
+            widget: list
+            allow_add: true
+            fields:
+              - {label: Prerequisite, name: value, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
