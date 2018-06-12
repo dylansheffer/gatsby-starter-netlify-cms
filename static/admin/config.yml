@@ -77,11 +77,18 @@ collections:
         name: "outline"
         widget: "object"
         fields:
-          - {label: Objective, name: objective, widget: list, allow_add: true}
-            - fields:
-              - {label: Objective, name: label, widget: string}
-              - {label: Sub-Objective, name: sub_objective, widget: list, allow_add: true}
-                - {label: Sub-Objective, name: label, widget: string}
+          - label: Objective
+            name: objective
+            widget: list
+            allow_add: true
+            fields:
+              - {label: Objective, name: value, widget: string}
+              - label: Sub-Objective
+                name: sub_objective
+                widget: list
+                allow_add: true
+                fields:
+                - {label: Sub-Objective, name: value, widget: string}
       - {label: "Prerequisites", name: "prerequisites", widget: "list"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
