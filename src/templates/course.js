@@ -14,7 +14,7 @@ export const CourseTemplate = ({
   contentComponent,
   title,
   length,
-  person,
+  instructors,
   objectives,
   outline,
   prerequisites,
@@ -88,7 +88,7 @@ export const CourseTemplate = ({
   const Prerequisites = styled.div`
   `
 
-  const Instructor = styled.div`
+  const Instructors = styled.div`
   `
 
   return (
@@ -128,12 +128,17 @@ export const CourseTemplate = ({
             ))}
         </ul>
       </Prerequisites>
-      <Instructor>
-        <div>{person.name}</div>
-        <div>{person.bio}</div>
-        <div>{person.twitter}</div>
-        <img src={person.image} alt={person.name} />
-      </Instructor>
+      <Instructors>
+        {instructors
+          .map(i => (
+            <div key={uuid()}>
+              <div>{i.person.name}</div>
+              <div>{i.person.bio}</div>
+              <div>{i.person.twitter}</div>
+              <img src={i.person.avatar} alt={i.person.name} />
+            </div>
+        ))}
+      </Instructors>
     </Post>
   )
 }
@@ -152,7 +157,7 @@ const Course = ({ data }) => {
         </Helmet>
       }
       title={post.frontmatter.title}
-      person={post.frontmatter.person}
+      instructors={post.frontmatter.instructors}
       objectives={post.frontmatter.objectives}
       outline={post.frontmatter.outline}
       prerequisites={post.frontmatter.prerequisites}
@@ -172,11 +177,17 @@ export const pageQuery = graphql`
       frontmatter {
         title
         length
-        person {
-          bio
-          name
-          twitter
-          image
+        instructors{
+          person {
+            name
+            bio
+            website
+            twitter
+            avatar
+            email
+            github
+            linkedin
+          }
         }
         objectives
         outline
