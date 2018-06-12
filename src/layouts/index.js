@@ -55,19 +55,6 @@ const TemplateWrapper = ({ children, location }) => (
               <SectionHeading>
                 Stay up-to-date on our latest courses, articles and more!
               </SectionHeading>
-              {/* <form action="">
-                <FlexContainer>
-                  <label htmlFor="name">Full Name:</label>
-                  <input type="text" id="name" name="user_name"/>
-                  <label htmlFor="mail">Email Address:</label>
-                  <input type="email" id="mail" name="user_mail" />
-                </FlexContainer>
-                <FlexContainer>
-                  <Button>
-                    <input type="submit" value="Send me updates"/>
-                  </Button>
-                </FlexContainer>
-              </form> */}
               <NewsletterForm />
             </FlexContainer>
           </Container>
@@ -78,6 +65,10 @@ const TemplateWrapper = ({ children, location }) => (
 
 injectGlobal`
 ${styledNormalize}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: ${text.sansSerif};
@@ -126,10 +117,6 @@ a {
 .page-header, h1, h2 {
   color: ${colors.gray};
   font-weight: 500;
-}
-
-.page-header {
-  height: 46px;
 }
 `
 
