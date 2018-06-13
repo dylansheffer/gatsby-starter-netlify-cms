@@ -55,6 +55,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Length", name: "length", widget: "string"}
+      - {label: "Delivery", name: "delivery", widget: "string"}
       - label: "Instructors"
         name: "instructors"
         widget: "list"
@@ -65,7 +66,7 @@ collections:
             widget: object
             fields:
               - {label: Name, name: name, widget: string, default: "Kevin Griffin"}
-              - {label: Avatar, name: avatar, widget: image}
+              - {label: Image, name: image, widget: image}
               - {label: Bio, name: bio, widget: string}
               - {label: Twitter, name: twitter, widget: string, required: false}
               - {label: Email, name: email, widget: string, required: false}
@@ -99,10 +100,9 @@ collections:
             fields:
               - {label: Prerequisite, name: value, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Course Image", name: "image", widget: "image", required: false, tagname: ""}
+      - {label: "Overview", name: "body", widget: "markdown"}
       - {label: "SEO Description", name: "description", widget: "text"}
-
   - name: "pages"
     label: "Pages"
     files:
