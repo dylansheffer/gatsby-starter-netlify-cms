@@ -73,32 +73,42 @@ collections:
               - {label: Website, name: website, widget: string, required: false}
               - {label: Github, name: github, widget: string, required: false}
               - {label: LinkedIn, name: linkedin, widget: string, required: false}
-      - label: "Course Outline"
-        name: "outline"
+      - label: "Course Objectives"
+        name: "objectives"
         widget: "object"
         fields:
-          - label: Objective
+          - label: "Objective"
             name: objective
             widget: list
             allow_add: true
             fields:
-              - {label: Objective, name: value, widget: string}
-              - label: Sub-Objective
-                name: sub_objective
+              - {label: "Objective Name", name: value, widget: string}
+      - label: "Course Outline"
+        name: "outline"
+        widget: "object"
+        fields:
+          - label: Task
+            name: task
+            widget: list
+            allow_add: true
+            fields:
+              - {label: "Task Name", name: value, widget: string}
+              - label: Sub-Task
+                name: sub_task
                 widget: list
                 allow_add: true
                 fields:
-                - {label: Sub-Objective, name: value, widget: string}
+                - {label: "Sub-Task Name", name: value, widget: string}
       - label: "Prerequisites"
         name: "prerequisites"
         widget: "object"
         fields:
           - label: "Prerequisite"
-            name: objective
+            name: prerequisite
             widget: list
             allow_add: true
             fields:
-              - {label: Prerequisite, name: value, widget: string}
+              - {label: "Prerequisite Name", name: value, widget: string}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Course Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Overview", name: "body", widget: "markdown"}
