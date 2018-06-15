@@ -90,6 +90,7 @@ collections:
             collection: "people"
             searchFields: ["title"]
             valueField: "title"
+            displayFields: ["title", "bio", "email", "website", "twitter", "github", "linkedin"]
       - label: "Course Objectives"
         name: "objectives"
         widget: "object"
