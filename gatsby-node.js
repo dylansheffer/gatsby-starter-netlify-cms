@@ -32,8 +32,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
 
     posts.forEach(edge => {
-      const id = edge.node.id
-      if(edge.node.frontmatter.templateKey != 'testimonial') {
+      const id = edge.node.id;
+      const { templateKey } = edge.node.frontmatter;
+      if(templateKey != 'testimonial' && templateKey != 'person') {
         createPage({
           path: edge.node.fields.slug,
           tags: edge.node.frontmatter.tags,
