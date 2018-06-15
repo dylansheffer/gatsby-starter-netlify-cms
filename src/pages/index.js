@@ -45,7 +45,7 @@ export default class IndexPage extends React.Component {
             <FlexContainer flexDirection="column">
               <SectionHeading>Testimonials</SectionHeading>
               <FlexContainer style={{margin: '20px 0'}}>
-                {data.allMarkdownRemark.edges
+                {posts
                   .filter(testimonial => testimonial.node.frontmatter.templateKey == 'testimonial').slice(0, 4)
                   .map(({ node: testimonial }) => (
                   <Testimonial key={testimonial.id} data={testimonial} />
