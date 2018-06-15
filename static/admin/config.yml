@@ -10,12 +10,13 @@ publish_mode: editorial_workflow
 collections:
   - name: "people"
     label: "People"
+    label_singular: "Person"
     folder: "src/pages/people"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
-      - {label: Name, name: name, widget: string}
+      - {label: Name, name: title, widget: string}
       - {label: Profile Picture, name: image, widget: image}
       - {label: Bio, name: bio, widget: string}
       - {label: Email, name: email, widget: string, required: false}
@@ -24,7 +25,8 @@ collections:
       - {label: Github, name: github, widget: string, required: false}
       - {label: LinkedIn, name: linkedin, widget: string, required: false}
   - name: "article"
-    label: "Article"
+    label: "Articles"
+    label_singular: "Article"
     folder: "src/pages/articles"
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
@@ -42,6 +44,7 @@ collections:
       - {label: "SEO Description", name: "description", widget: "text"}
   - name: "webinar"
     label: "Webinars"
+    label_singular: "Webinar"
     folder: "src/pages/webinars"
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
@@ -63,6 +66,7 @@ collections:
       - {label: "SEO Description", name: "description", widget: "text"}
   - name: "course"
     label: "Courses"
+    label_singular: "Course"
     folder: "src/pages/courses"
     create: true
     slug: "{{slug}}"
@@ -80,18 +84,12 @@ collections:
         widget: "list"
         fields:
           - label: Instructor
-            name: person
+            name: instructor
             allow_add: true
-            widget: object
-            fields:
-              - {label: Name, name: name, widget: string, default: "Kevin Griffin"}
-              - {label: Image, name: image, widget: image}
-              - {label: Bio, name: bio, widget: string}
-              - {label: Email, name: email, widget: string, required: false}
-              - {label: Website, name: website, widget: string, required: false}
-              - {label: Twitter, name: twitter, widget: string, required: false}
-              - {label: Github, name: github, widget: string, required: false}
-              - {label: LinkedIn, name: linkedin, widget: string, required: false}
+            widget: relation
+            collection: "people"
+            searchFields: ["title"]
+            valueField: "title"
       - label: "Course Objectives"
         name: "objectives"
         widget: "object"
@@ -130,6 +128,7 @@ collections:
               - {label: "Prerequisite Name", name: value, widget: string}
   - name: "pages"
     label: "Pages"
+    label_singular: "Page"
     files:
       - file: "src/pages/about/index.md"
         label: "About"
