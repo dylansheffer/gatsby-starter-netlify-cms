@@ -22,9 +22,11 @@ const WebinarsPage = ({ data }) => (
   </Container>
 )
 
-export const pageQuery = graphql`
+export const webinarQuery = graphql`
   query WebinarsQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: {regex : "\/webinars/"} },
+      sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           excerpt(pruneLength: 400)

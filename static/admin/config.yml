@@ -51,14 +51,30 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "webinar"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Speaker Name", name: "speaker", widget: "string"}
-      - {label: "Speaker Twitter", name: "twitter", widget: "string", required: false}
-      - {label: "Speaker LinkedIn", name: "linkedin", widget: "string", required: false}
-      - {label: "Speaker Facebook", name: "facebook", widget: "string", required: false}
-      - {label: "Author Name", name: "author", widget: "string"}
-      - {label: "Author Twitter", name: "twitter", widget: "string", required: false}
-      - {label: "Author LinkedIn", name: "linkedin", widget: "string", required: false}
-      - {label: "Author Facebook", name: "facebook", widget: "string", required: false}
+      - label: "Speakers"
+        name: "speakers"
+        widget: "list"
+        fields:
+          - label: Speaker
+            name: speaker
+            allow_add: true
+            widget: relation
+            collection: "people"
+            searchFields: ["title"]
+            valueField: "title"
+            displayFields: ["title", "bio", "email", "website", "twitter", "github", "linkedin"]
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        fields:
+          - label: Author
+            name: Author
+            allow_add: true
+            widget: relation
+            collection: "people"
+            searchFields: ["title"]
+            valueField: "title"
+            displayFields: ["title", "bio", "email", "website", "twitter", "github", "linkedin"]
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
