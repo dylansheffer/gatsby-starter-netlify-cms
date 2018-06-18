@@ -1,10 +1,6 @@
 ---
 templateKey: webinar
 title: Leadership for the Reluctant Leader
-speakers:
-  - speaker: David Neal
-authors:
-  - Author: Kevin Griffin
 date: '2018-06-17T20:11:35-04:00'
 image: /img/leadership-reluctant-leader.png
 tags:

@@ -10,7 +10,8 @@ export const WebinarTemplate = ({
   contentComponent,
   tags,
   title,
-  author,
+  authors,
+  speakers,
   date,
   helmet,
 }) => {

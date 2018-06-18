@@ -11,7 +11,7 @@ objectives:
   - Students will learn how Vue.js fits into a larger web application ecosystem
 instructors:
   - person:
-      avatar: /img/kevin.png
+      image: /img/kevin.png
       bio: >-
         Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee.
       email: kevin@swiftkick.in

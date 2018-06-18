@@ -9,7 +9,7 @@ import Container from '../../components/Container';
 
 const WebinarsPage = ({ data }) => (
   <Container>
-    <SidebarLayout>
+    {/* <SidebarLayout> */}
       {/* <Sidebar> */}
 
         {/* TODO: Think about making the Upcoming Webinar the top webinar listing */}
@@ -18,8 +18,7 @@ const WebinarsPage = ({ data }) => (
         {/* </UpcomingWebinar> */}
       {/* </Sidebar> */}
       <PostList data={data} title="Latest Webinars" templateKey="webinar" />
-      <div></div>
-    </SidebarLayout>
+    {/* </SidebarLayout> */}
   </Container>
 )
 

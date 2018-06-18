@@ -55,26 +55,28 @@ collections:
         name: "speakers"
         widget: "list"
         fields:
-          - label: Speaker
-            name: speaker
-            allow_add: true
-            widget: relation
-            collection: "people"
-            searchFields: ["title"]
-            valueField: "title"
-            displayFields: ["title", "bio", "email", "website", "twitter", "github", "linkedin"]
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
+          - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
+          - {label: Profile Picture, name: image, widget: image default: "/img/kevin.png"}
+          - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
+          - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
+          - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
+          - {label: Twitter, name: twitter, widget: string, required: false, default: "1kevgriff"}
+          - {label: Github, name: github, widget: string, required: false, default: "1kevgriff"}
+          - {label: LinkedIn, name: linkedin, widget: string, required: false, default: "1kevgriff"}
       - label: "Authors"
         name: "authors"
         widget: "list"
         fields:
-          - label: Author
-            name: Author
-            allow_add: true
-            widget: relation
-            collection: "people"
-            searchFields: ["title"]
-            valueField: "title"
-            displayFields: ["title", "bio", "email", "website", "twitter", "github", "linkedin"]
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
+          - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
+          - {label: Profile Picture, name: image, widget: image default: "/img/kevin.png"}
+          - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
+          - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
+          - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
+          - {label: Twitter, name: twitter, widget: string, required: false, default: "1kevgriff"}
+          - {label: Github, name: github, widget: string, required: false, default: "1kevgriff"}
+          - {label: LinkedIn, name: linkedin, widget: string, required: false, default: "1kevgriff"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -99,50 +101,47 @@ collections:
         name: "instructors"
         widget: "list"
         fields:
-          - label: Instructor
-            name: instructor
-            allow_add: true
-            widget: relation
-            collection: "people"
-            searchFields: ["title"]
-            valueField: "title"
-            displayFields: ["title", "bio", "email", "website", "twitter", "github", "linkedin"]
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
+          - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
+          - {label: Profile Picture, name: image, widget: image default: "/img/kevin.png"}
+          - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
+          - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
+          - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
+          - {label: Twitter, name: twitter, widget: string, required: false, default: "1kevgriff"}
+          - {label: Github, name: github, widget: string, required: false, default: "1kevgriff"}
+          - {label: LinkedIn, name: linkedin, widget: string, required: false, default: "1kevgriff"}
       - label: "Course Objectives"
         name: "objectives"
         widget: "object"
         fields:
-          - label: "Objective"
-            name: objective
+          - label: "Objectives"
+            name: objectives
             widget: list
             allow_add: true
             fields:
-              - {label: "Objective Name", name: value, widget: string}
+              - {label: "Objective", name: objective, widget: string}
       - label: "Course Outline"
         name: "outline"
         widget: "object"
         fields:
-          - label: Task
+          - label: Tasks
             name: task
             widget: list
             allow_add: true
             fields:
-              - {label: "Task Name", name: value, widget: string}
-              - label: Sub-Task
-                name: sub_task
+              - {label: "Tasks", name: tasks, widget: string}
+              - label: Sub-Tasks
+                name: sub_tasks
                 widget: list
                 allow_add: true
                 fields:
-                - {label: "Sub-Task Name", name: value, widget: string}
+                - {label: "Sub-Task", name: sub_task, widget: string}
       - label: "Prerequisites"
         name: "prerequisites"
-        widget: "object"
+        widget: "list"
+        allow_add: true
         fields:
-          - label: "Prerequisite"
-            name: prerequisite
-            widget: list
-            allow_add: true
-            fields:
-              - {label: "Prerequisite Name", name: value, widget: string}
+            - {label: "Prerequisite", name: prerequisite, widget: string}
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
