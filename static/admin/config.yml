@@ -147,6 +147,17 @@ collections:
       - {label: Twitter, name: twitter, widget: string, required: false}
       - {label: Github, name: github, widget: string, required: false}
       - {label: LinkedIn, name: linkedin, widget: string, required: false}
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "Testimonial"
+    folder: "src/pages/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "testimonial"}
+      - {label: Author, name: author, widget: string}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Quote", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
