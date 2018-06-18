@@ -41,7 +41,7 @@ const ArticleHeading = styled.div`
     }
 `
 
-const PostExcerpt = ({ post }) => (
+const PostExcerpt = ({ post, buttonText }) => (
     <CardItem image={post.frontmatter.image}>
         <ArticleHeading>
             <h2>
@@ -51,7 +51,7 @@ const PostExcerpt = ({ post }) => (
         </ArticleHeading>
         <p>{post.excerpt}</p>
         <Button style={{margin: "auto 0 0"}}>
-            <Link to={post.fields.slug}>Keep Reading</Link>
+            <Link to={post.fields.slug}>{buttonText ? buttonText : "Keep Reading"}</Link>
         </Button>
     </CardItem>
 )

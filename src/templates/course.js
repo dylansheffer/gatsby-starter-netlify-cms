@@ -8,6 +8,8 @@ import { colors } from '../style/branding'
 import Content, { HTMLContent } from '../components/Content'
 import Post from '../components/Post'
 import { SectionHeading, SectionSubHeading } from '../components/SectionHeading'
+import AuthorCards from '../components/AuthorCards'
+import FlexContainer from '../components/FlexContainer'
 
 export const CourseTemplate = ({
   content,
@@ -18,6 +20,7 @@ export const CourseTemplate = ({
   objectives,
   outline,
   prerequisites,
+  delivery,
   helmet,
 }) => {
   const CourseContent = contentComponent || Content
@@ -32,14 +35,14 @@ export const CourseTemplate = ({
 
   @media only screen and (min-width: 1024px) {
     width: 80%;
-    margin: 50px auto;
+    margin: 25px auto;
     padding: 20px;
   }
   `
 
-  const CourseLength = styled.div`
+  const CourseDetails = styled.div`
     font-size: 1.3em;
-    margin: 40px 0;
+    margin: 0;
 
     .label {
       color: ${colors.red};
@@ -83,62 +86,99 @@ export const CourseTemplate = ({
   `
 
   const Outline = styled.div`
-  `
+    width: 100%
+    padding: 10px;
+    border: 2px solid ${colors.lightGray};
+    margin: 10px;
 
-  const Prerequisites = styled.div`
-  `
+    li {
+      margin: 10px 0;
+      line-height: 25px;
+      font-size: 18px;
+      list-style: square;
+    }
 
-  const Instructors = styled.div`
+    @media only screen and (min-width: 650px) {
+      max-width: 45%;
+    }
+    `
+
+    const Prerequisites = styled.div`
+    width: 100%;
+    padding: 10px;
+    border: 2px solid ${colors.lightGray};
+    margin: 5px;
+
+    li {
+      margin: 10px 0;
+      line-height: 25px;
+    }
+
+    @media only screen and (min-width: 650px) {
+      max-width: 45%;
+    }
+    @media only screen and (min-width: 800px) {
+      li{
+        font-size: 18px;
+      }
+    }
   `
 
   return (
     <Post postType="course" helmet={helmet}>
-      <h3 aria-hidden="true">Course Details</h3>
+      <h3 aria-hidden="true" style={{textAlign: "center"}}>Course Details</h3>
       <h1 className="page-header">{title}</h1>
       <CourseSection>
         <SectionHeading>Course Information</SectionHeading>
-        <CourseLength>
-          <span className="label">Length: </span> {length}
-        </CourseLength>
-
+        <CourseDetails>
+          <span className="label">Length: </span> {length} <br />
+          <span className="label">Delivered: </span> {delivery}
+        </CourseDetails>
         <Objectives>
           <SectionSubHeading>Students Will Learn</SectionSubHeading>
           <ul>
             {objectives
-              .map(objective => (
-              <li key={uuid()}>{objective}</li>
-            ))}
+              .map(o => (
+                <li key={uuid()}>{o.objective}</li>
+              ))}
           </ul>
         </Objectives>
       </CourseSection>
-      <CourseContent className="post-content" content={content} />
-      <Outline>
-        <ul>
-            {outline
-              .map(item => (
-              <li key={uuid()}>{item}</li>
-            ))}
-        </ul>
-      </Outline>
-      <Prerequisites>
-        <ul>
-            {prerequisites
-              .map(prerequisite => (
-              <li key={uuid()}>{prerequisite}</li>
-            ))}
-        </ul>
-      </Prerequisites>
-      <Instructors>
-        {instructors
-          .map(i => (
-            <div key={uuid()}>
-              <div>{i.person.name}</div>
-              <div>{i.person.bio}</div>
-              <div>{i.person.twitter}</div>
-              <img src={i.person.avatar} alt={i.person.name} />
-            </div>
-        ))}
-      </Instructors>
+      <div className="post-content">
+        <SectionSubHeading>Course Description</SectionSubHeading>
+        <CourseContent content={content} />
+      </div>
+      <FlexContainer style={{justifyContent: "space-around"}}>
+        <Outline>
+          <SectionSubHeading>Course Outline</SectionSubHeading>
+          <ul>
+              {outline.tasks
+                .map(t => (
+                <li key={uuid()}>
+                  {t.task}
+                  <ul>
+                    {t.sub_tasks ?
+                      t.sub_tasks.map(s => (
+                        <li key={uuid()}>{s.sub_task}</li>
+                      ))
+                      : ""
+                    }
+                  </ul>
+                </li>
+              ))}
+          </ul>
+        </Outline>
+        <Prerequisites>
+          <SectionSubHeading>Prerequisites</SectionSubHeading>
+          <ul>
+              {prerequisites
+                .map(p => (
+                <li key={uuid()}>{p.prerequisite}</li>
+              ))}
+          </ul>
+        </Prerequisites>
+      </FlexContainer>
+      <AuthorCards authors={instructors} authorType="Instructor" authorTypePlural="Instructors" />
     </Post>
   )
 }
@@ -163,6 +203,7 @@ const Course = ({ data }) => {
       prerequisites={post.frontmatter.prerequisites}
       description={post.frontmatter.description}
       length={post.frontmatter.length}
+      delivery={post.frontmatter.delivery}
     />
   )
 }
@@ -175,24 +216,35 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        templateKey
         title
+        description
+        delivery
         length
-        instructors{
-          person {
-            name
-            bio
-            website
-            twitter
-            image
-            email
-            github
-            linkedin
+        objectives {
+          objective
+        }
+        prerequisites {
+          prerequisite
+        }
+        outline {
+          tasks {
+            task
+            sub_tasks {
+              sub_task
+            }
           }
         }
-        objectives
-        outline
-        prerequisites
-        description
+        instructors {
+          title
+          bio
+          image
+          website
+          twitter
+          email
+          github
+          linkedin
+        }
       }
     }
   }

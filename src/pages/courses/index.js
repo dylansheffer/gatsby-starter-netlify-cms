@@ -5,7 +5,7 @@ import Container from '../../components/Container';
 
 const CoursesPage = ({ data }) => (
     <Container>
-      <PostList data={data} title="Courses" templateKey="course" />
+      <PostList data={data} title="Courses" templateKey="course" buttonText="Register" />
     </Container>
 )
 

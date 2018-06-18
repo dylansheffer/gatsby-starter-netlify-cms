@@ -1,10 +1,24 @@
 ---
 templateKey: article
 title: RevolutionConf 2017 Event Recap
-author: Kevin Griffin
-author-twitter: 1kevgriff
-author-linkedin: 1kevgriff
-author-facebook: dsheffer16
+authors:
+  - bio: >-
+      Training. Consulting. Community guy. If you don't know who I am, let's
+      grab a cup of coffee.
+    email: kevin@swiftkick.in
+    github: 1kevgriff
+    title: Kevin Griffin
+    image: /img/kevin.png
+    linkedin: 1kevgriff
+    twitter: 1kevgriff
+    website: 'https://swiftkick.in'
+  - bio: Dylan Sheffer
+    email: dsheffer16@gmail.com
+    github: dylansheffer
+    title: Dylan Sheffer
+    image: /img/chemex.jpg
+    linkedin: dylansheffer
+    twitter: dylansheffer
 date: '2018-06-06T11:29:51-04:00'
 image: /img/20170601_174425048_ios-min.jpg
 tags:

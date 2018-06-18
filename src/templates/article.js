@@ -5,13 +5,14 @@ import Helmet from 'react-helmet'
 import Content, { HTMLContent } from '../components/Content'
 import PostTags from '../components/Tags'
 import Post from '../components/Post'
+import AuthorList from '../components/AuthorList'
 
 export const ArticleTemplate = ({
   content,
   contentComponent,
   tags,
   title,
-  author,
+  authors,
   date,
   helmet,
 }) => {
@@ -23,9 +24,7 @@ export const ArticleTemplate = ({
         {title}
       </h1>
       <div className="post-citation">
-        {/* TODO: Add Link to author page when after I generate them */}
-        {/* <span>by <a href="http://" rel="author">{author || "Author"}</a></span> */}
-        <span>by {author || "Author"}</span>
+        <AuthorList authors={authors} />
         <p><time>{date}</time></p>
       </div>
       <ArticleContent className="post-content" content={content} />
@@ -49,7 +48,7 @@ const Article = ({ data }) => {
       }
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
-      author={post.frontmatter.author}
+      authors={post.frontmatter.authors}
       date={post.frontmatter.date}
     />
   )
@@ -64,7 +63,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        author
+        authors {
+          title
+        }
         title
         description
         tags

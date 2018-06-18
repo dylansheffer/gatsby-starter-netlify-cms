@@ -17,10 +17,19 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Author Name", name: "author", widget: "string"}
-      - {label: "Author Twitter", name: "twitter", widget: "string", required: false}
-      - {label: "Author LinkedIn", name: "linkedin", widget: "string", required: false}
-      - {label: "Author Facebook", name: "facebook", widget: "string", required: false}
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
+          - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
+          - {label: Profile Picture, name: image, widget: image, default: "/img/kevin.png"}
+          - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
+          - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
+          - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
+          - {label: Twitter, name: twitter, widget: string, required: false, default: "1kevgriff"}
+          - {label: Github, name: github, widget: string, required: false, default: "1kevgriff"}
+          - {label: LinkedIn, name: linkedin, widget: string, required: false, default: "1kevgriff"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
       - {label: "Body", name: "body", widget: "markdown"}
