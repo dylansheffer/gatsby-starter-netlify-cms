@@ -57,7 +57,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
           - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
-          - {label: Profile Picture, name: image, widget: image default: "/img/kevin.png"}
+          - {label: Profile Picture, name: image, widget: image, default: "/img/kevin\.png"}
           - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
           - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
           - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
@@ -70,7 +70,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
           - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
-          - {label: Profile Picture, name: image, widget: image default: "/img/kevin.png"}
+          - {label: Profile Picture, name: image, widget: image, default: "/img/kevin\.png"}
           - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
           - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
           - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
@@ -103,7 +103,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
           - {label: Name, name: title, widget: string, default: "Kevin Griffin"}
-          - {label: Profile Picture, name: image, widget: image default: "/img/kevin.png"}
+          - {label: Profile Picture, name: image, widget: image, default: "/img/kevin\.png"}
           - {label: Bio, name: bio, widget: string, default: "Training. Consulting. Community guy. If you don't know who I am, let's grab a cup of coffee."}
           - {label: Email, name: email, widget: string, required: false, default: kevin@swiftkick.in}
           - {label: Website, name: website, widget: string, required: false, default: "https://swiftkick.in/"}
