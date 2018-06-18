@@ -183,7 +183,7 @@ export const pageQuery = graphql`
             bio
             website
             twitter
-            avatar
+            image
             email
             github
             linkedin
