@@ -18,6 +18,7 @@ const WebinarsPage = ({ data }) => (
         {/* </UpcomingWebinar> */}
       {/* </Sidebar> */}
       <PostList data={data} title="Latest Webinars" templateKey="webinar" />
+      <div></div>
     </SidebarLayout>
   </Container>
 )
