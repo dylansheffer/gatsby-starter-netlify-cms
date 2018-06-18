@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 import { colors } from '../style/branding'
 import FlexContainer from '../components/FlexContainer'
 import Button from '../components/Button'
+import AuthorList from '../components/AuthorList'
 
 const HomeCardContainer = styled.div`
     flex: auto 1;
@@ -93,10 +94,10 @@ export const SwiftKickShowCard = ({ data, title, description, ...props}) => (
             {props.children}
             {data ? (
             <UpcomingEventContainer>
-                <Link to="/"><h3>{data.title}</h3></Link>
-                <p>{data.speaker}</p>
+                <Link to={data.link}><h3>{data.title}</h3></Link>
+                <p><AuthorList authors={data.speakers} className="authors" /></p>
                 <p><time>{data.date}</time> at <time>{data.time}</time></p>
-                <Button className="register-button" buttonSize="small"><Link to="/">Register</Link></Button>
+                <Button className="register-button" buttonSize="small"><Link to={data.link}>Register</Link></Button>
             </UpcomingEventContainer>
         ):null}
         </FlexContainer>

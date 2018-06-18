@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthorList = ({ authors }) => {
+const AuthorList = ({ authors, className }) => {
     const getAuthorList = (authors) => {
       if (authors.length < 2) {
         return authors[0].title || "author"
@@ -22,7 +22,7 @@ const AuthorList = ({ authors }) => {
       return authorsString;
     }
 
-    return <span>by {getAuthorList(authors)}</span>
+    return <span className={className}>by {getAuthorList(authors)}</span>
   }
 
 export default AuthorList;

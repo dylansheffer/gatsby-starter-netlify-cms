@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import moment from 'moment'
 
 import { colors } from '../style/branding'
 import Container from '../components/Container'
@@ -17,6 +18,18 @@ export default class IndexPage extends React.Component {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
+    const UpcomingSwiftKickShows = posts.filter(webinar => webinar.node.frontmatter.templateKey == 'webinar').slice(0, 1)
+    .map(({ node: webinar }) => (
+    {
+      title: webinar.frontmatter.title,
+      speakers: webinar.frontmatter.speakers,
+      date: moment(webinar.frontmatter.date).format('MM/DD/YYYY'),
+      time: moment(webinar.frontmatter.date).format('hh:mm a'),
+      description: webinar.frontmatter.description,
+      link: webinar.fields.slug
+    }
+    ));
+
     return (
       <div>
         <PageSection backgroundColor={colors.offWhite}>
@@ -28,10 +41,9 @@ export default class IndexPage extends React.Component {
               <Tagline>
                 Technology moves fast. Does your team have the resources they need to keep up, or will your projects fall behind?
               </Tagline>
-              <FlexContainer style={{alignItems: "flex-start"}}>
+              <FlexContainer >
                 <CourseCard title="Public Training" description="If you have a smaller team, the cost of providing customized training can be a limiting factor. Swift Kick offers public training courses throughout the United States." data={{title: "Docker Workshop", location: "Richmond, VA USA", date: "July 27-28, 2017"}}/>
-
-                <SwiftKickShowCard title="Swift Kick Show" description="The Swift Kick Show is a webinar series that brings in industry experts to share their knowledge for free." data={{title: "Speed and Stability in Mobile and Web", speaker: "Mike Rollins", date: "June 13, 2018", time: "2pm"}}>
+                <SwiftKickShowCard title="Swift Kick Show" description="The Swift Kick Show is a webinar series that brings in industry experts to share their knowledge for free." data={UpcomingSwiftKickShows[0]}>
                   <Button buttonSize="small" style={{alignSelf: 'center'}}><a href="https://www.youtube.com/channel/UC3iCOs_7lQ85OWOy6lhy4_g/featured">View the Catalog</a></Button>
                 </SwiftKickShowCard>
               </FlexContainer>
@@ -74,7 +86,11 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date
+            description
+            speakers {
+              title
+            }
           }
         }
       }
