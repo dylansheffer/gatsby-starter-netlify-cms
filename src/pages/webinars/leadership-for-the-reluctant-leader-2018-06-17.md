@@ -17,6 +17,13 @@ authors:
     linkedin: 1kevgriff
     twitter: 1kevgriff
     website: 'https://swiftkick.in'
+  - bio: Dylan Sheffer
+    email: dsheffer16@gmail.com
+    github: dylansheffer
+    title: Dylan Sheffer
+    image: /img/chemex.jpg
+    linkedin: dylansheffer
+    twitter: dylansheffer
 date: '2018-06-17T20:11:35-04:00'
 image: /img/leadership-reluctant-leader.png
 tags:
