@@ -4,6 +4,8 @@ import Helmet from 'react-helmet'
 import Content, { HTMLContent } from '../components/Content'
 import PostTags from '../components/Tags'
 import Post from '../components/Post'
+import AuthorList from '../components/AuthorList'
+import AuthorCards from '../components/AuthorCards'
 
 export const WebinarTemplate = ({
   content,
@@ -16,19 +18,17 @@ export const WebinarTemplate = ({
   helmet,
 }) => {
   const WebinarContent = contentComponent || Content
-
   return (
     <Post postType="webinar" helmet={helmet}>
         <h1 className="page-header">
           {title}
         </h1>
         <div className="post-citation">
-          {/* TODO: Add Link to author page when after I generate them */}
-          {/* <span>by <a href="http://" rel="author">{author || "Author"}</a></span> */}
-          {/* <span>by {author || "Author"}</span> */}
+          <AuthorList authors={authors} />
           <p><time>{date}</time></p>
         </div>
         <WebinarContent content={content} />
+        <AuthorCards authors={speakers} authorType="Speaker" authorTypePlural="Speakers" />
         <PostTags tags={tags} />
     </Post>
   )
@@ -50,7 +50,8 @@ const Webinar = ({ data }) => {
       }
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
-      // author={post.frontmatter.author}
+      authors={post.frontmatter.authors}
+      speakers={post.frontmatter.speakers}
       date={post.frontmatter.date}
     />
   )
@@ -68,6 +69,26 @@ export const pageQuery = graphql`
         title
         description
         tags
+        authors {
+          title
+          bio
+          image
+          website
+          email
+          github
+          linkedin
+          twitter
+        }
+        speakers {
+          title
+          bio
+          image
+          website
+          email
+          github
+          linkedin
+          twitter
+        }
       }
     }
   }

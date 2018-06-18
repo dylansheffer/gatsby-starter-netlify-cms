@@ -51,7 +51,7 @@ const TemplateWrapper = ({ children, location }) => (
     <PageSection backgroundColor={colors.offWhite}>
           <Container>
             <FlexContainer flexDirection="column">
-              <h3 aria-hidden="true">Subscribe</h3>
+              <h3 aria-hidden="true" style={{textAlign: "center"}}>Subscribe</h3>
               <SectionHeading>
                 Stay up-to-date on our latest courses, articles and more!
               </SectionHeading>
@@ -89,7 +89,6 @@ h2 {
 }
 
 h3 {
-  text-align: center;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;

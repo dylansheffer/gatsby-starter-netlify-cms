@@ -37,6 +37,7 @@ export const webinarQuery = graphql`
           frontmatter {
             title
             templateKey
+            image
             date(formatString: "MMMM DD, YYYY")
           }
         }
