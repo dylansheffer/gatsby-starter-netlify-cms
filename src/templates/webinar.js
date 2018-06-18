@@ -25,7 +25,7 @@ export const WebinarTemplate = ({
         <div className="post-citation">
           {/* TODO: Add Link to author page when after I generate them */}
           {/* <span>by <a href="http://" rel="author">{author || "Author"}</a></span> */}
-          <span>by {author || "Author"}</span>
+          {/* <span>by {author || "Author"}</span> */}
           <p><time>{date}</time></p>
         </div>
         <WebinarContent content={content} />
@@ -50,7 +50,7 @@ const Webinar = ({ data }) => {
       }
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
-      author={post.frontmatter.author}
+      // author={post.frontmatter.author}
       date={post.frontmatter.date}
     />
   )
