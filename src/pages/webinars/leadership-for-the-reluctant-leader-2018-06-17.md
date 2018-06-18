@@ -9,11 +9,6 @@ speakers:
     website: http://reverentgeek.com/
     linkedin: davidneal
     github: reverentgeek
-    email: test@swiftkick.com
-  - bio: "ambassador of awesome \U0001F953 bearded believer \U0001F953 aspiring artist \U0001F953 salty speaker \U0001F953 dorky developer \U0001F953 @joyent javascripter \U0001F953 mediocre musician \U0001F953 @microsoft mvp"
-    title: David Neal 2
-    image: /img/david-neal.jpg
-    twitter: reverentgeek
 authors:
   - bio: >-
       Training. Consulting. Community guy. If you don't know who I am, let's

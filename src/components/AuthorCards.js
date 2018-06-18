@@ -8,6 +8,10 @@ import FlexContainer from '../components/FlexContainer';
 import CardItem from '../components/CardItem'
 import SectionHeading from '../components/SectionHeading'
 
+const CardSection = styled.section`
+    margin: 40px 0;
+`
+
 const AuthorCard = styled(CardItem)`
 
 `
@@ -29,7 +33,7 @@ const AuthorInfo = styled.ul`
 `
 
 const AuthorCards = ({authors, authorType, authorTypePlural}) => (
-    <section>
+    <CardSection>
         {(authors.length < 2) ?
             (
                 <div>
@@ -148,7 +152,7 @@ const AuthorCards = ({authors, authorType, authorTypePlural}) => (
                 </div>
             )
         }
-    </section>
+    </CardSection>
 )
 
 export default AuthorCards
