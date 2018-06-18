@@ -33,7 +33,7 @@ export const pageQuery = graphql`
           html
           frontmatter {
             templateKey
-            author
+            title
           }
         }
       }

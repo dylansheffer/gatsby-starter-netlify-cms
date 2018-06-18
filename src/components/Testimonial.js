@@ -38,7 +38,7 @@ const Testimonial = ({ data }) => {
         <TestimonialTemplate
         content={data.html}
         contentComponent={HTMLContent}
-        author={data.frontmatter.author}
+        author={data.frontmatter.title}
         />
     )
 }
