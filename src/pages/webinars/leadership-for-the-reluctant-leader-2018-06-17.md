@@ -9,6 +9,16 @@ speakers:
     website: http://reverentgeek.com/
     linkedin: davidneal
     github: reverentgeek
+  - bio: >-
+      Training. Consulting. Community guy. If you don't know who I am, let's
+      grab a cup of coffee.
+    email: kevin@swiftkick.in
+    github: 1kevgriff
+    title: Kevin Griffin
+    image: /img/kevin.png
+    linkedin: 1kevgriff
+    twitter: 1kevgriff
+    website: 'https://swiftkick.in'
 authors:
   - bio: >-
       Training. Consulting. Community guy. If you don't know who I am, let's

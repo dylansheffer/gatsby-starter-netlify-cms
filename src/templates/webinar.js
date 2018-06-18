@@ -71,13 +71,6 @@ export const pageQuery = graphql`
         tags
         authors {
           title
-          bio
-          image
-          website
-          email
-          github
-          linkedin
-          twitter
         }
         speakers {
           title
