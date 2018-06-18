@@ -8,22 +8,6 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: "people"
-    label: "People"
-    label_singular: "Person"
-    folder: "src/pages/people"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
-      - {label: Name, name: title, widget: string}
-      - {label: Profile Picture, name: image, widget: image}
-      - {label: Bio, name: bio, widget: string}
-      - {label: Email, name: email, widget: string, required: false}
-      - {label: Website, name: website, widget: string, required: false}
-      - {label: Twitter, name: twitter, widget: string, required: false}
-      - {label: Github, name: github, widget: string, required: false}
-      - {label: LinkedIn, name: linkedin, widget: string, required: false}
   - name: "article"
     label: "Articles"
     label_singular: "Article"
@@ -111,25 +95,21 @@ collections:
           - {label: Github, name: github, widget: string, required: false, default: "1kevgriff"}
           - {label: LinkedIn, name: linkedin, widget: string, required: false, default: "1kevgriff"}
       - label: "Course Objectives"
-        name: "objectives"
-        widget: "object"
+        name: objectives
+        widget: list
+        allow_add: true
         fields:
-          - label: "Objectives"
-            name: objectives
-            widget: list
-            allow_add: true
-            fields:
-              - {label: "Objective", name: objective, widget: string}
+          - {label: "Objective", name: objective, widget: string}
       - label: "Course Outline"
         name: "outline"
         widget: "object"
         fields:
           - label: Tasks
-            name: task
+            name: tasks
             widget: list
             allow_add: true
             fields:
-              - {label: "Tasks", name: tasks, widget: string}
+              - {label: "Task", name: task, widget: string}
               - label: Sub-Tasks
                 name: sub_tasks
                 widget: list
@@ -142,6 +122,22 @@ collections:
         allow_add: true
         fields:
             - {label: "Prerequisite", name: prerequisite, widget: string}
+  - name: "people"
+  label: "People"
+  label_singular: "Person"
+  folder: "src/pages/people"
+  create: true
+  slug: "{{slug}}"
+  fields:
+    - {label: "Template Key", name: "templateKey", widget: "hidden", default: "person"}
+    - {label: Name, name: title, widget: string}
+    - {label: Profile Picture, name: image, widget: image}
+    - {label: Bio, name: bio, widget: string}
+    - {label: Email, name: email, widget: string, required: false}
+    - {label: Website, name: website, widget: string, required: false}
+    - {label: Twitter, name: twitter, widget: string, required: false}
+    - {label: Github, name: github, widget: string, required: false}
+    - {label: LinkedIn, name: linkedin, widget: string, required: false}
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
