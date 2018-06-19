@@ -12,6 +12,8 @@ collections:
     label: "Articles"
     label_singular: "Article"
     folder: "src/pages/articles"
+    editor:
+      preview: false
     create: true
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
@@ -40,6 +42,8 @@ collections:
     label_singular: "Webinar"
     folder: "src/pages/webinars"
     create: true
+    editor:
+      preview: false
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "webinar"}
@@ -79,6 +83,8 @@ collections:
     label: "Courses"
     label_singular: "Course"
     folder: "src/pages/courses"
+    editor:
+      preview: false
     create: true
     slug: "{{slug}}"
     fields:
@@ -135,6 +141,8 @@ collections:
     label: "People"
     label_singular: "Person"
     folder: "src/pages/people"
+    editor:
+      preview: false
     create: true
     slug: "{{slug}}"
     fields:
@@ -151,6 +159,8 @@ collections:
     label: "Testimonials"
     label_singular: "Testimonial"
     folder: "src/pages/testimonials"
+    editor:
+      preview: false
     create: true
     slug: "{{slug}}"
     fields:
@@ -161,6 +171,8 @@ collections:
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
+    editor:
+      preview: false
     files:
       - file: "src/pages/about/index.md"
         label: "About"
