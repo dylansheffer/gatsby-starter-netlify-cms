@@ -17,7 +17,7 @@ const WebinarsPage = ({ data }) => (
 
         {/* </UpcomingWebinar> */}
       {/* </Sidebar> */}
-      <PostList data={data} title="Latest Webinars" templateKey="webinar" buttonText="Register" />
+      <PostList data={data} title="Latest Webinars" templateKey="webinar" buttonText="Details" />
     {/* </SidebarLayout> */}
   </Container>
 )
