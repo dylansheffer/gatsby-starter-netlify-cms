@@ -25,7 +25,7 @@ const UpcomingWebinar = ({title, date, ...props}) => (
         <h1>Upcoming Webinar</h1>
         <h2>{title}</h2>
         <time>{date}</time>
-        <Button>
+        <Button style={{ margin: '20px auto'}}>
             <Link to="/">Register</Link>
         </Button>
         {props.children}

@@ -40,7 +40,9 @@ const Hero = (props) => (
   <HeroStyle>
     <Container>
       <div className="hero-container">
-        <img className="logo" src={Logo} alt="SwiftKick Logo"/>
+        <Link to="/">
+            <img className="logo" src={Logo} alt="SwiftKick Logo"/>
+        </Link>
         {props.children}
       </div>
     </Container>

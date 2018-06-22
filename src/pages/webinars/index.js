@@ -1,25 +1,23 @@
 import React from 'react'
 
 import PostList from '../../components/PostList'
-import Sidebar from '../../components/Sidebar';
-import SidebarLayout from '../../components/SidebarLayout';
 import UpcomingWebinar from '../../components/UpcomingWebinar';
 import Container from '../../components/Container';
+import FlexContainer from '../../components/FlexContainer'
 
 
 const WebinarsPage = ({ data }) => (
-  <Container>
-    {/* <SidebarLayout> */}
-      {/* <Sidebar> */}
+  <FlexContainer>
+    <Container>
+        <PostList data={data} title="Latest Webinars" templateKey="webinar" buttonText="Details" />
+    </Container>
+    <Container style={{marginTop: "50px"}}>
+      <aside>
+        <UpcomingWebinar title="A Test Webinar" date="June 6, 2018"></UpcomingWebinar>
+      </aside>
+    </Container>
+  </FlexContainer>
 
-        {/* TODO: Think about making the Upcoming Webinar the top webinar listing */}
-        {/* <UpcomingWebinar title="A Test Webinar" date="June 6, 2018"> */}
-
-        {/* </UpcomingWebinar> */}
-      {/* </Sidebar> */}
-      <PostList data={data} title="Latest Webinars" templateKey="webinar" buttonText="Details" />
-    {/* </SidebarLayout> */}
-  </Container>
 )
 
 export const webinarQuery = graphql`

@@ -24,11 +24,8 @@ fontawesome.config = {
 	autoAddCss: false
 };
 
-const Root = styled.div`
-`
-
 const TemplateWrapper = ({ children, location }) => (
-  <Root>
+  <div>
     <Helmet>
       <title>Swift Kick</title>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
@@ -60,7 +57,7 @@ const TemplateWrapper = ({ children, location }) => (
           </Container>
         </PageSection>
     <Footer />
-  </Root>
+  </div>
 )
 
 injectGlobal`
@@ -106,6 +103,11 @@ a {
     text-decoration: underline !important;
     color: ${colors.lightRed};
   }
+}
+
+li {
+  line-height: 1.4em;
+  margin: 10px 0;
 }
 
 .container {
