@@ -13,7 +13,11 @@ const CardImage = styled.div`
     align-self: center;
     margin: auto 0;
 
-    @media only screen and (min-width: 410px) {
+    @media only screen and (min-width: 330px) {
+        width: 300px;
+    }
+
+    @media only screen and (min-width: 440px) {
         width: 400px;
     }
 
@@ -25,7 +29,6 @@ const CardImage = styled.div`
 const CardItemListing = styled.article`
     display: flex;
     flex-direction: column;
-    margin: 50px 20px;
 
     .card-content {
         display: flex;
@@ -33,14 +36,8 @@ const CardItemListing = styled.article`
         align-items: center;
     }
 
-    .card-image {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 300px;
-        height: 250px;
-        align-self: center;
-        margin: auto 0;
+    @media only screen and (min-width: 400px) {
+        margin: 50px 20px;
     }
 
     @media only screen and (min-width: 900px) {

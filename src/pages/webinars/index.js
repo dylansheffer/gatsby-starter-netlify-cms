@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PostList from '../../components/PostList'
-import UpcomingWebinar from '../../components/UpcomingWebinar';
+import { UpcomingWebinarSidebar } from '../../components/Sidebar'
 import Container from '../../components/Container';
 import FlexContainer from '../../components/FlexContainer'
 
@@ -9,12 +9,14 @@ import FlexContainer from '../../components/FlexContainer'
 const WebinarsPage = ({ data }) => (
   <FlexContainer>
     <Container>
-        <PostList data={data} title="Latest Webinars" templateKey="webinar" buttonText="Details" />
-    </Container>
-    <Container style={{marginTop: "50px"}}>
-      <aside>
-        <UpcomingWebinar title="A Test Webinar" date="June 6, 2018"></UpcomingWebinar>
-      </aside>
+        <PostList
+          data={data}
+          title="Latest Webinars"
+          templateKey="webinar"
+          buttonText="Details"
+        >
+          <UpcomingWebinarSidebar title="A Test Webinar" date="June 6, 2018" />
+        </PostList>
     </Container>
   </FlexContainer>
 
