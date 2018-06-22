@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import ReactModal from 'react-modal'
 
 import { colors } from '../style/branding'
 import Button from './Button';
@@ -18,19 +19,56 @@ const UpcomingWebinarSection = styled.section`
         letter-spacing: .1em;
         color: ${colors.lightGray};
     }
+
+    h2 {
+        text-align: center;
+    }
 `
 
-const UpcomingWebinar = ({title, date, ...props}) => (
-    <UpcomingWebinarSection>
-        <h1>Upcoming Webinar</h1>
-        <h2>{title}</h2>
-        <time>{date}</time>
-        <Button style={{ margin: '20px auto'}}>
-            <Link to="/">Register</Link>
-        </Button>
-        {props.children}
-    </UpcomingWebinarSection>
-)
+export default class UpcomingWebinar extends React.Component {
+    componentWillMount() {
+        ReactModal.setAppElement('body')
+      }
 
-export default UpcomingWebinar
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          showModal: false
+        }
+
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+      }
+
+      handleOpenModal () {
+        this.setState({ showModal: true });
+      }
+
+      handleCloseModal () {
+        this.setState({ showModal: false });
+      }
+
+      render() {
+          const { title, date, ...props } = this.props;
+
+          return (
+            <UpcomingWebinarSection>
+                <h1>Upcoming Webinar</h1>
+                <h2>{title}</h2>
+                <time>{date}</time>
+                <Button><button style={{margin: "10px auto"}} onClick={this.handleOpenModal}>Register</button></Button>
+                {props.children}
+                <ReactModal
+                    isOpen={this.state.showModal}
+                    contentLabel="Register for Course"
+                    onRequestClose={this.handleCloseModal}
+                    shouldCloseOnOverlayClick={true}
+                >
+                    <Button><button onClick={this.handleCloseModal}>Close Modal</button></Button>
+                </ReactModal>
+            </UpcomingWebinarSection>
+          )
+      }
+}
 

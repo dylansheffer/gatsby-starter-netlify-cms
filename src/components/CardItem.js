@@ -29,6 +29,7 @@ const CardImage = styled.div`
 const CardItemListing = styled.article`
     display: flex;
     flex-direction: column;
+    margin: 50px 5px;
 
     .card-content {
         display: flex;

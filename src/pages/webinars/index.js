@@ -15,7 +15,10 @@ const WebinarsPage = ({ data }) => (
           templateKey="webinar"
           buttonText="Details"
         >
-          <UpcomingWebinarSidebar title="A Test Webinar" date="June 6, 2018" />
+          <UpcomingWebinarSidebar
+            title={data.allMarkdownRemark.edges[0].node.frontmatter.title}
+            date={data.allMarkdownRemark.edges[0].node.frontmatter.date}
+          />
         </PostList>
     </Container>
   </FlexContainer>

@@ -5,7 +5,7 @@ import UpcomingWebinar from '../components/UpcomingWebinar'
 
 const SideBar = styled.aside`
   @media only screen and (min-width: 1000px) {
-    margin: 50px 20px 0 0;
+    margin: 100px 0 0 40px;
   }
 `
 
