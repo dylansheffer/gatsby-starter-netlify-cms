@@ -7,6 +7,7 @@ import { faFacebook, faTwitter, faLinkedin, faGithub } from '@fortawesome/fontaw
 import FlexContainer from '../components/FlexContainer';
 import CardItem from '../components/CardItem'
 import SectionHeading from '../components/SectionHeading'
+import { colors } from '../style/branding'
 
 const CardSection = styled.section`
     margin: 40px 0;
@@ -25,9 +26,15 @@ const AuthorInfo = styled.ul`
         display: flex;
         align-items: center;
         padding: 5px;
-        svg {
-            margin: 5px;
-            font-size: 30px;
+        a {
+            color: ${colors.gray};
+            :hover {
+                color: ${colors.red};
+            }
+            svg {
+                margin: 5px;
+                font-size: 30px;
+            }
         }
     }
 `
@@ -46,43 +53,38 @@ const AuthorCards = ({authors, authorType, authorTypePlural}) => (
                                 <AuthorInfo>
                                     {authors[0].website ?
                                         <li>
-                                            <FontAwesomeIcon icon={faLaptop} />
-                                            <a href={authors[0].website}>{authors[0].website}</a>
+                                            <a href={authors[0].website} aria-label={`${authors[0].title}'s website`} title={`${authors[0].title}'s website`}><FontAwesomeIcon icon={faLaptop} /></a>
                                         </li>
                                     : ""}
 
                                     {authors[0].twitter ?
                                         <li>
-                                            <FontAwesomeIcon icon={faTwitter} />
-                                            <a href={`https://twitter.com/${authors[0].twitter}`}>@{authors[0].twitter}</a>
+                                            <a href={`https://twitter.com/${authors[0].twitter}`} aria-label={`${authors[0].title}'s Twitter`} title={`${authors[0].title}'s Twitter`}><FontAwesomeIcon icon={faTwitter} /></a>
                                         </li>
                                     : ""}
 
                                     {authors[0].email ?
                                         <li>
                                             <FontAwesomeIcon icon={faEnvelope} />
-                                            <a href={`mailto:${authors[0].email}`}>{authors[0].email}</a>
+                                            <a aria-label={`Email ${authors[0].title}`} href={`mailto:${authors[0].email}`} title={`Email ${authors[0].title}`}>{authors[0].email}</a>
                                         </li>
                                     : ""}
 
                                     {authors[0].github ?
                                         <li>
-                                            <FontAwesomeIcon icon={faGithub} />
-                                            <a href={`https://github.com/${authors[0].github}`}>{authors[0].github}</a>
+                                            <a href={`https://github.com/${authors[0].github}`} aria-label={`${authors[0].title}'s Github`} title={`${authors[0].title}'s Github`}><FontAwesomeIcon icon={faGithub} /></a>
                                         </li>
                                     : ""}
 
                                     {authors[0].linkedin ?
                                         <li>
-                                            <FontAwesomeIcon icon={faLinkedin} />
-                                            <a href={`https://linkedin.com/in/${authors[0].linkedin}`}>{authors[0].linkedin}</a>
+                                            <a href={`https://linkedin.com/in/${authors[0].linkedin}`} aria-label={`${authors[0].title}'s Linkedin`} title={`${authors[0].title}'s Linkedin`}><FontAwesomeIcon icon={faLinkedin} /></a>
                                         </li>
                                     : ""}
 
                                     {authors[0].facebook ?
                                         <li>
-                                            <FontAwesomeIcon icon={faFacebook} />
-                                            <a href={`https://facebook.com/${authors[0].facebook}`}>{authors[0].facebook}</a>
+                                            <a href={`https://facebook.com/${authors[0].facebook}`} aria-label={`${authors[0].title}'s Facebook`} title={`${authors[0].title}'s Facebook`}><FontAwesomeIcon icon={faFacebook} /></a>
                                         </li>
                                     : ""}
                                 </AuthorInfo>
@@ -104,43 +106,37 @@ const AuthorCards = ({authors, authorType, authorTypePlural}) => (
                                         <AuthorInfo>
                                     {author.website ?
                                         <li>
-                                            <FontAwesomeIcon icon={faLaptop} />
-                                            <a href={author.website}>{author.website}</a>
+                                            <a href={author.website} aria-label={`${author.title}'s website`} title={`${author.title}'s website`}><FontAwesomeIcon icon={faLaptop} /></a>
                                         </li>
                                     : ""}
 
                                     {author.twitter ?
                                         <li>
-                                            <FontAwesomeIcon icon={faTwitter} />
-                                            <a href={`https://twitter.com/${author.twitter}`}>@{author.twitter}</a>
+                                            <a href={`https://twitter.com/${author.twitter}`} aria-label={`${author.title}'s Twitter`} title={`${author.title}'s Twitter`}><FontAwesomeIcon icon={faTwitter} /></a>
                                         </li>
                                     : ""}
 
                                     {author.email ?
                                         <li>
-                                            <FontAwesomeIcon icon={faEnvelope} />
-                                            <a href={`mailto:${author.email}`}>{author.email}</a>
+                                            <a href={`mailto:${author.email}`} aria-label={`Email ${author.title}`} title={`Email ${author.title}`}><FontAwesomeIcon icon={faEnvelope} /></a>
                                         </li>
                                     : ""}
 
                                     {author.github ?
                                         <li>
-                                            <FontAwesomeIcon icon={faGithub} />
-                                            <a href={`https://github.com/${author.github}`}>{author.github}</a>
+                                            <a href={`https://github.com/${author.github}`} aria-label={`${author.title}'s Github`} title={`${author.title}'s Github`}><FontAwesomeIcon icon={faGithub} /></a>
                                         </li>
                                     : ""}
 
                                     {author.linkedin ?
                                         <li>
-                                            <FontAwesomeIcon icon={faLinkedin} />
-                                            <a href={`https://linkedin.com/in/${author.linkedin}`}>{author.linkedin}</a>
+                                            <a href={`https://linkedin.com/in/${author.linkedin}`} aria-label={`${author.title}'s Linkedin`} title={`${author.title}'s Linkedin`}><FontAwesomeIcon icon={faLinkedin} /></a>
                                         </li>
                                     : ""}
 
                                     {author.facebook ?
                                         <li>
-                                            <FontAwesomeIcon icon={faFacebook} />
-                                            <a href={`https://facebook.com/${author.facebook}`}>{author.facebook}</a>
+                                            <a href={`https://facebook.com/${author.facebook}`} aria-label={`${author.title}'s Facebook`} title={`${author.title}'s Facebook`}><FontAwesomeIcon icon={faFacebook} /></a>
                                         </li>
                                     : ""}
                                         </AuthorInfo>

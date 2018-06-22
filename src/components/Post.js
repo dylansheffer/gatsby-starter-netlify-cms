@@ -6,12 +6,12 @@ import { colors } from '../style/branding'
 import Container from '../components/Container'
 
 const Post = ({postType, helmet, ...props}) => (
-    <PostStyle>
+    <PostStyle style={props.style} className={props.className}>
       {helmet || ''}
       <Container>
-          <Link className="bread-crumb" to={`/${postType.toLowerCase()}s`}>Back to {postType.charAt(0).toUpperCase() + postType.slice(1)} List</Link>
-          {props.children}
-        </Container>
+        <Link className="bread-crumb" to={`/${postType.toLowerCase()}s`}>Back to {postType.charAt(0).toUpperCase() + postType.slice(1)} List</Link>
+        {props.children}
+      </Container>
     </PostStyle>
 )
 
@@ -86,6 +86,12 @@ const PostStyle = styled.article`
       margin-top: 25px;
     }
 
+
+    @media only screen and (min-width: 1024px) {
+      &&&.sidebar {
+        width: 65%;
+      }
+    }
     @media only screen and (min-width: 720px) {
       margin: 20px;
 

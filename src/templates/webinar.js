@@ -8,6 +8,8 @@ import Post from '../components/Post'
 import AuthorList from '../components/AuthorList'
 import AuthorCards from '../components/AuthorCards'
 import Button from '../components/Button'
+import { UpcomingWebinarSidebar } from '../components/Sidebar'
+import FlexContainer from '../components/FlexContainer'
 
 export class WebinarTemplate extends React.Component {
 
@@ -40,7 +42,7 @@ export class WebinarTemplate extends React.Component {
     const WebinarContent = contentComponent || Content;
 
     return (
-      <Post postType="webinar" helmet={helmet}>
+      <Post className="sidebar" postType="webinar" helmet={helmet}>
           <h1 className="page-header">
             {title}
           </h1>
@@ -66,25 +68,31 @@ export class WebinarTemplate extends React.Component {
 }
 
 const Webinar = ({ data }) => {
-  const { markdownRemark: post } = data
-
+  const { webinar , webinars  } = data;
+  const upcomingWebinar = webinars.edges[0].node;
   return (
-    <WebinarTemplate
-      content={post.html}
+    <FlexContainer>
+      <WebinarTemplate
+      content={webinar.html}
       contentComponent={HTMLContent}
-      description={post.frontmatter.description}
+      description={webinar.frontmatter.description}
       helmet={
         <Helmet>
-          <title>{`${post.frontmatter.title} | Webinars`}</title>
-          <meta name="description" content={post.frontmatter.description}/>
-        </Helmet>
-      }
-      tags={post.frontmatter.tags}
-      title={post.frontmatter.title}
-      authors={post.frontmatter.authors}
-      speakers={post.frontmatter.speakers}
-      date={post.frontmatter.date}
-    />
+            <title>{`${webinar.frontmatter.title} | Webinars`}</title>
+            <meta name="description" content={webinar.frontmatter.description}/>
+          </Helmet>
+        }
+        tags={webinar.frontmatter.tags}
+        title={webinar.frontmatter.title}
+        authors={webinar.frontmatter.authors}
+        speakers={webinar.frontmatter.speakers}
+        date={webinar.frontmatter.date}
+        />
+        <UpcomingWebinarSidebar
+          title={upcomingWebinar.frontmatter.title}
+          date = {upcomingWebinar.frontmatter.date}
+        />
+    </FlexContainer>
   )
 }
 
@@ -92,7 +100,7 @@ export default Webinar
 
 export const pageQuery = graphql`
   query WebinarByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+    webinar: markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
@@ -112,6 +120,20 @@ export const pageQuery = graphql`
           github
           linkedin
           twitter
+        }
+      }
+    }
+
+    webinars: allMarkdownRemark(
+      filter: { fileAbsolutePath: {regex : "\/webinars/"} },
+      sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+          }
         }
       }
     }
