@@ -1,10 +1,13 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import ReactModal from 'react-modal'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faWindowClose }  from '@fortawesome/fontawesome-free-solid'
 
 import { colors } from '../style/branding'
-import Button from './Button';
+import Button , { FaButton } from '../components/Button'
+import WebinarForm from '../components/WebinarForm'
+import VisuallyHidden from '../components/VisuallyHidden'
 
 const UpcomingWebinarSection = styled.section`
     display: flex;
@@ -50,7 +53,7 @@ export default class UpcomingWebinar extends React.Component {
       }
 
       render() {
-          const { title, date, ...props } = this.props;
+          const { title, date, webinarId, ...props } = this.props;
 
           return (
             <UpcomingWebinarSection>
@@ -61,11 +64,16 @@ export default class UpcomingWebinar extends React.Component {
                 {props.children}
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="Register for Course"
+                    contentLabel={`Register for ${title}`}
                     onRequestClose={this.handleCloseModal}
                     shouldCloseOnOverlayClick={true}
                 >
-                    <Button><button onClick={this.handleCloseModal}>Close Modal</button></Button>
+                    <FaButton><button onClick={this.handleCloseModal}>
+                        <VisuallyHidden>Close Modal</VisuallyHidden>
+                        <FontAwesomeIcon icon={faWindowClose} size="2x" />
+                    </button></FaButton>
+
+                    <WebinarForm title={title} webinarId={webinarId} />
                 </ReactModal>
             </UpcomingWebinarSection>
           )

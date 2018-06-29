@@ -35,4 +35,22 @@ const Button = styled.span`
     }
 `
 
+export const FaButton = styled.span`
+    a, button, input {
+        background-color: transparent;
+        color: black;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        -webkit-transition: .5s all ease;
+        transition: .5s all ease;
+        :hover {
+            color: darkgrey;
+        }
+    }
+
+    button, input {
+        border: 0;
+    }
+`
+
 export default Button

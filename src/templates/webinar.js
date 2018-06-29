@@ -91,6 +91,7 @@ const Webinar = ({ data }) => {
         <UpcomingWebinarSidebar
           title={upcomingWebinar.frontmatter.title}
           date = {upcomingWebinar.frontmatter.date}
+          webinarId = {upcomingWebinar.frontmatter.webinarId}
         />
     </FlexContainer>
   )
@@ -106,6 +107,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        webinarId
         description
         tags
         authors {

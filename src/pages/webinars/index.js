@@ -18,6 +18,7 @@ const WebinarsPage = ({ data }) => (
           <UpcomingWebinarSidebar
             title={data.allMarkdownRemark.edges[0].node.frontmatter.title}
             date={data.allMarkdownRemark.edges[0].node.frontmatter.date}
+            webinarId={data.allMarkdownRemark.edges[0].node.frontmatter.webinarId}
           />
         </PostList>
     </Container>
@@ -42,6 +43,7 @@ export const webinarQuery = graphql`
             templateKey
             image
             date(formatString: "MMMM DD, YYYY")
+            webinarId
           }
         }
       }

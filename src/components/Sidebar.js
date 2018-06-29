@@ -9,8 +9,8 @@ const SideBar = styled.aside`
   }
 `
 
-export const UpcomingWebinarSidebar = ({ title, date }) => (
+export const UpcomingWebinarSidebar = ({ title, date, webinarId }) => (
   <SideBar>
-    <UpcomingWebinar title={title} date={date} />
+    <UpcomingWebinar title={title} date={date} webinarId={webinarId}/>
   </SideBar>
 );
