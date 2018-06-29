@@ -47,6 +47,7 @@ collections:
     slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "webinar"}
+      - {label: "Webinar ID", name: "webinarId"}
       - {label: "Title", name: "title", widget: "string"}
       - label: "Speakers"
         name: "speakers"
