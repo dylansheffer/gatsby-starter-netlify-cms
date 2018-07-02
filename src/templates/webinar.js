@@ -107,7 +107,6 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        webinarId
         description
         tags
         authors {
@@ -134,6 +133,7 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            webinarId
             date(formatString: "MMMM DD, YYYY")
           }
         }
