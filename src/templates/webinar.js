@@ -56,6 +56,7 @@ const Webinar = ({ data }) => {
         authors={webinar.frontmatter.authors}
         speakers={webinar.frontmatter.speakers}
         date={webinar.frontmatter.date}
+        webinarId={webinar.frontmatter.webinarId}
         />
         <UpcomingWebinarSidebar
           title={upcomingWebinar.frontmatter.title}
