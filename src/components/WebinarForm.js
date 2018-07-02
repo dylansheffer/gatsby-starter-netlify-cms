@@ -40,9 +40,24 @@ export default class WebinarForm extends Component {
 
     render() {
         const { title, webinarId } = this.props;
+        const formName = `webinar-register-${title}-${webinarId}`
         return (
-            <form data-netlify="true" onSubmit={this.handleSubmit}>
+            <form
+            name={formName}
+            method="post"
+            action="/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={this.handleSubmit}
+            >
                 <h1>Register for {title}</h1>
+                <input type="hidden" name="form-name" value={formName} />
+                <p hidden>
+                    <label>
+                    Don’t fill this out:{" "}
+                    <input name="bot-field" onChange={this.handleChange} />
+                    </label>
+                </p>
                 <input type="hidden" name="webinarId" value={webinarId}/>
                 <label htmlFor="firstName">First Name</label>
                 <input id="firstName" name="firstName" type="text" />
