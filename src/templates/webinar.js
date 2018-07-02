@@ -10,34 +10,11 @@ import AuthorCards from '../components/AuthorCards'
 import Button from '../components/Button'
 import { UpcomingWebinarSidebar } from '../components/Sidebar'
 import FlexContainer from '../components/FlexContainer'
+import { WebinarRegisterModal } from '../components/RegisterModals'
 
 export class WebinarTemplate extends React.Component {
-
-  componentWillMount() {
-    ReactModal.setAppElement('body')
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showModal: false
-    }
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
-  handleOpenModal () {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal () {
-    this.setState({ showModal: false });
-  }
-
   render() {
-    const { content, contentComponent, tags, title, authors, speakers, date, helmet } = this.props;
+    const { content, contentComponent, tags, title, authors, speakers, date, helmet, webinarId } = this.props;
 
     const WebinarContent = contentComponent || Content;
 
@@ -51,17 +28,9 @@ export class WebinarTemplate extends React.Component {
             <p><time>{date}</time></p>
           </div>
           <WebinarContent content={content} />
-          <Button><button style={{margin: "10px auto"}} onClick={this.handleOpenModal}>Register</button></Button>
+          <WebinarRegisterModal title={title} webinarId={webinarId} />
           <AuthorCards authors={speakers} authorType="Speaker" authorTypePlural="Speakers" />
           <PostTags tags={tags} />
-          <ReactModal
-            isOpen={this.state.showModal}
-            contentLabel="Register for Course"
-            onRequestClose={this.handleCloseModal}
-            shouldCloseOnOverlayClick={true}
-          >
-            <Button><button onClick={this.handleCloseModal}>Close Modal</button></Button>
-          </ReactModal>
       </Post>
     )
   }
@@ -109,6 +78,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        webinarId
         authors {
           title
         }

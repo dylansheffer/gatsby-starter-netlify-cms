@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { kebabCase } from 'lodash'
 import styled from 'styled-components'
 
 import Button from '../components/Button'
@@ -40,7 +41,7 @@ export default class WebinarForm extends Component {
 
     render() {
         const { title, webinarId } = this.props;
-        const formName = `webinar-register-${title}-${webinarId}`
+        const formName = kebabCase(`webinar-register-${title}`)+`-${webinarId}`;
         return (
             <form
             name={formName}
@@ -54,8 +55,8 @@ export default class WebinarForm extends Component {
                 <input type="hidden" name="form-name" value={formName} />
                 <p hidden>
                     <label>
-                    Don’t fill this out:{" "}
-                    <input name="bot-field" onChange={this.handleChange} />
+                    Don’t fill this out:
+                    <input name="bot-field" />
                     </label>
                 </p>
                 <input type="hidden" name="webinarId" value={webinarId}/>
@@ -71,7 +72,7 @@ export default class WebinarForm extends Component {
                 <label htmlFor="session">Session</label>
                 <select id="session" name="session" type="text" defaultValue="Select a session">
                 </select>
-                <Button><input type="submit" value="Register" /></Button>
+                <Button><button>Register</button></Button>
             </form>
         );
     }
