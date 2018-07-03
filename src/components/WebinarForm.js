@@ -23,7 +23,7 @@ export default class WebinarForm extends Component {
                         'user-agent': 'Mozilla/4.0 MDN Example',
                         'content-type': 'application/json'
             }
-        })
+        });
         // let url = `https://webinar-jam-test.azurewebsites.net/api/HttpTriggerJS1?code=7IznAaIV2aoKrjEq8VtD1m7UsCHy6J4Ya17/ak1oMeXMR5cKZ0myuQ==`
 
         // data.append("api_key", process.env.WEBINAR_JAM_API_KEY || '');
@@ -78,8 +78,8 @@ export default class WebinarForm extends Component {
 
                 <label htmlFor="session">Session</label>
                 <select id="session" name="session" type="text" defaultValue="Select a session">
-                <input type="hidden" name="webinarId" value={webinarId}/>
                 </select>
+                <input type="hidden" name="webinarId" value={webinarId}/>
                 <Button><button>Register</button></Button>
             </form>
         );
