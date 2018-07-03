@@ -7,18 +7,6 @@ exports.handler = function(event, context, callback) {
         schedule
     } = event.body;
 
-    // Throw error if body doesn't have required fields
-    if (!(
-        webinarId &&
-        firstName &&
-        email &&
-        schedule
-    )) {
-       return callback("Request did not contain required fields", {
-            statusCode: 400
-        });
-    }
-
     const data = {
         apiKey: process.env.WEBINAR_JAM_API_KEY || '',
         webinarId,
@@ -27,6 +15,21 @@ exports.handler = function(event, context, callback) {
         email,
         schedule
     }
+
+    // Throw error if body doesn't have required fields
+    if (!(
+        webinarId &&
+        firstName &&
+        email &&
+        schedule
+    )) {
+        console.log(data);
+       return callback("Request did not contain required fields", {
+            statusCode: 400
+        });
+    }
+
+
 
     fetch('https://webinarjam.genndi.com/api/register', {
         method: 'POST',
