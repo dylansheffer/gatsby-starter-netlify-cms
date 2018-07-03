@@ -1,8 +1,8 @@
 exports.handler = function(event, context, callback) {
     const {
-        webinarId,
-        firstName,
-        lastName,
+        webinar_id,
+        first_name,
+        last_name,
         email,
         schedule
     } = event.queryStringParameters;
@@ -11,17 +11,17 @@ exports.handler = function(event, context, callback) {
 
     const data = {
         apiKey: process.env.WEBINAR_JAM_API_KEY || '',
-        webinarId: webinarId,
-        firstName: firstName,
-        lastName: lastName,
+        webinarId: webinar_id,
+        firstName: first_name,
+        lastName: last_name,
         email: email,
         schedule: schedule
     }
 
     // Throw error if body doesn't have required fields
     if (!(
-        webinarId &&
-        firstName &&
+        webinar_id &&
+        first_name &&
         email &&
         schedule
     )) {
