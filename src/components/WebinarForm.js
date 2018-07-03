@@ -11,11 +11,14 @@ export default class WebinarForm extends Component {
     }
 
     handleSubmit(event) {
-        // event.preventDefault();
-        // const form = event.target;
-        // const data = new FormData(form);
-        // const json = JSON.stringify(data);
-        // console.log(json);
+        event.preventDefault();
+        const apiHost = process.env.NETLIFY_FUNC;
+
+        console.log(apiHost);
+
+        const form = event.target;
+        const data = JSON.stringify(new FormData(form));
+        console.log(data);
         // let url = `https://webinar-jam-test.azurewebsites.net/api/HttpTriggerJS1?code=7IznAaIV2aoKrjEq8VtD1m7UsCHy6J4Ya17/ak1oMeXMR5cKZ0myuQ==`
 
         // data.append("api_key", process.env.WEBINAR_JAM_API_KEY || '');
