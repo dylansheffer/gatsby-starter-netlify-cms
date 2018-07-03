@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { toast, ToastContainer } from 'react-toastify';
 import { kebabCase } from 'lodash'
 
 import Button from '../components/Button'
+import FlexContainer from '../components/FlexContainer'
 
 //TODO: Make the Lambda Function return a confirmation, so we know it worked
 // Add another API request that gets the sessions and place it as options
@@ -64,7 +66,7 @@ export default class WebinarForm extends Component {
         })
         .then((res) => {
             if(res.ok) {
-                toast.success(`You Successfully registered for ${this.props.title} `, {
+                toast.success(`Successfully registered for ${this.props.title} `, {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -100,28 +102,65 @@ export default class WebinarForm extends Component {
         const { title, webinarId } = this.props;
         const formName = kebabCase(`webinar-register-${title}`)+`-${webinarId}`;
         return (
-            <form
+            <StyledForm
             name={formName}
             onSubmit={this.handleSubmit}
             >
                 <h1>Register for {title}</h1>
-                <input type="hidden" name="form-name" value={formName} />
-                <label htmlFor="firstName">First Name</label>
-                <input id="firstName" name="firstName" type="text" onChange={this.updateFirstNameInput} />
+                <FlexContainer flexDirection="column">
+                    <input type="hidden" name="form-name" value={formName} />
+                    <label htmlFor="firstName">First Name</label>
+                    <input id="firstName" name="firstName" type="text" onChange={this.updateFirstNameInput} />
 
-                <label htmlFor="lastName">Last Name</label>
-                <input id="lastName" name="lastName" type="text" onChange={this.updateLastNameInput} />
+                    <label htmlFor="lastName">Last Name</label>
+                    <input id="lastName" name="lastName" type="text" onChange={this.updateLastNameInput} />
 
-                <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" onChange={this.updateEmailInput} />
+                    <label htmlFor="email">Email</label>
+                    <input id="email" name="email" type="email" onChange={this.updateEmailInput} />
 
-                {/* <label htmlFor="session">Session</label> */}
-                <input id="session" name="session" type="hidden" value="0" />
-                {/* <select id="session" name="session" type="text" defaultValue="Select a session">
-                </select> */}
-                {/* <input type="hidden" name="webinarId" value={webinarId}/> */}
+                    {/* <label htmlFor="session">Session</label> */}
+                    <input id="session" name="session" type="hidden" value="0" />
+                    {/* <select id="session" name="session" type="text" defaultValue="Select a session">
+                    </select> */}
+                    {/* <input type="hidden" name="webinarId" value={webinarId}/> */}
+                </FlexContainer>
                 <Button><button>Register</button></Button>
-            </form>
+            </StyledForm>
         );
     }
 }
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 25px;
+    }
+
+    div {
+        width: 90%;
+        max-width: 500px;
+        justify-content: center;
+
+        input, label {
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+        }
+        input {
+            margin: 5px auto 20px;
+            height: 40px;
+        }
+    }
+    @media only screen and (min-width: 720px) {
+        div {
+            width: 75%;
+
+            input, label {
+                width: 75%;
+            }
+        }
+    }
+`

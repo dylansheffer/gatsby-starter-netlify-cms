@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import ReactModal from 'react-modal'
 import { ToastContainer } from 'react-toastify'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -35,7 +36,7 @@ export class WebinarRegisterModal extends Component {
   render() {
       const { title, webinarId, ...props } = this.props;
     return (
-        <div>
+        <ModalContainer>
             <Button><button style={{margin: "10px auto"}} onClick={this.handleOpenModal}>Register</button></Button>
             <ReactModal
             isOpen={this.state.showModal}
@@ -51,7 +52,10 @@ export class WebinarRegisterModal extends Component {
 
                 <WebinarForm title={title} webinarId={webinarId} postSubmit={this.handleCloseModal} />
             </ReactModal>
-        </div>
+        </ModalContainer>
     )
   }
 }
+
+const ModalContainer = styled.div`
+`
