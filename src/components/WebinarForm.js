@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { kebabCase } from 'lodash'
-import styled from 'styled-components'
 
 import Button from '../components/Button'
+
+//TODO: Make the Lambda Function return a confirmation, so we know it worked
+// Add another API request that gets the sessions and place it as options
+// Style Form, so it isn't as ugly
 
 export default class WebinarForm extends Component {
     constructor() {
@@ -51,13 +54,15 @@ export default class WebinarForm extends Component {
 
         const {firstNameInput, lastNameInput, emailInput, scheduleInput} = this.state;
         const { webinarId } = this.props;
-        debugger
         fetch(`https://wizardly-aryabhata-7d1959.netlify.com/.netlify/functions/WebinarJam-RegisterForWebinar?webinar_id=${webinarId}&schedule=${scheduleInput}&first_name=${firstNameInput}&last_name=${lastNameInput}&email=${emailInput}`,{
             method: 'GET',
             headers: {
-                        'user-agent': 'Mozilla/4.0 MDN Example',
-                        'content-type': 'application/json'
+                'user-agent': 'Mozilla/4.0 MDN Example',
+                'content-type': 'application/json'
             }
+        }).then((res) => {
+            console.log("After Webinar Submission")
+            console.log(res)
         });
     }
 

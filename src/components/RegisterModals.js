@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import ReactModal from 'react-modal'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faWindowClose }  from '@fortawesome/fontawesome-free-solid'
 
-import { colors } from '../style/branding'
 import Button , { FaButton } from '../components/Button'
 import WebinarForm from '../components/WebinarForm'
 import VisuallyHidden from '../components/VisuallyHidden'
-import Hide from '../components/Hide'
 
 export class WebinarRegisterModal extends Component {
     componentWillMount() {
@@ -52,10 +49,6 @@ export class WebinarRegisterModal extends Component {
 
                 <WebinarForm title={title} webinarId={webinarId} />
             </ReactModal>
-
-            {/* <Hide>
-                <WebinarForm title={title} webinarId={webinarId} />
-            </Hide> */}
         </div>
     )
   }
