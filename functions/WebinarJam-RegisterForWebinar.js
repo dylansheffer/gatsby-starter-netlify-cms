@@ -40,7 +40,7 @@ exports.handler = function(event, context, callback) {
             'user-agent': 'Mozilla/4.0 MDN Example',
             'content-type': 'application/json'
           },
-        host: 'https://webinarjam.genndi.com',
+        host: 'webinarjam.genndi.com',
         path: '/api/register'
     }
 
