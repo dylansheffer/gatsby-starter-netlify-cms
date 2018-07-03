@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { kebabCase } from 'lodash'
 
 import Button from '../components/Button'
@@ -61,18 +61,17 @@ export default class WebinarForm extends Component {
                 'user-agent': 'Mozilla/4.0 MDN Example',
                 'content-type': 'application/json'
             }
-        }).then((res) => {
+        })
+        .then((res) => {
             if(res.ok) {
-                console.log("After Webinar Submission")
-                console.log(res)
                 toast.success(`You Successfully registered for ${this.props.title} `, {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true
+                    pauseOnHover: true
                 });
+                this.props.postSubmit();
             }
             else {
                 toast.error(`Error registering for webinar`, {
@@ -80,10 +79,19 @@ export default class WebinarForm extends Component {
                     autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true
+                    pauseOnHover: true
                 });
             }
+        })
+        .catch((err) => {
+            toast.error(`Error registering for webinar`, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true
+            });
+            console.log(err);
         });
     }
 

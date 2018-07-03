@@ -4,8 +4,10 @@ import Helmet from 'react-helmet'
 import styledNormalize from 'styled-normalize'
 import styled, { injectGlobal } from 'styled-components'
 import fontawesome from '@fortawesome/fontawesome'
+
 import 'normalize.css'
 import '@fortawesome/fontawesome/styles.css'
+import 'react-toastify/dist/ReactToastify.css';
 import { colors, text } from '../style/branding'
 
 import Navbar from '../components/Navbar'

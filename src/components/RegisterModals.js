@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactModal from 'react-modal'
+import { ToastContainer } from 'react-toastify'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faWindowClose }  from '@fortawesome/fontawesome-free-solid'
 
@@ -42,12 +43,13 @@ export class WebinarRegisterModal extends Component {
             onRequestClose={this.handleCloseModal}
             shouldCloseOnOverlayClick={true}
             >
+                <ToastContainer />
                 <FaButton><button onClick={this.handleCloseModal}>
                     <VisuallyHidden>Close Modal</VisuallyHidden>
                     <FontAwesomeIcon icon={faWindowClose} size="2x" />
                 </button></FaButton>
 
-                <WebinarForm title={title} webinarId={webinarId} />
+                <WebinarForm title={title} webinarId={webinarId} postSubmit={this.handleCloseModal} />
             </ReactModal>
         </div>
     )
