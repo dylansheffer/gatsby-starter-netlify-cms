@@ -11,10 +11,10 @@ exports.handler = function(event, context, callback) {
     console.log(event.queryStringParameters);
 
     const body = {
-        apiKey: process.env.WEBINAR_JAM_API_KEY || '',
-        webinarId: webinar_id,
-        firstName: first_name,
-        lastName: last_name,
+        api_key: process.env.WEBINAR_JAM_API_KEY || '',
+        webinar_id: webinar_id,
+        first_name: first_name,
+        last_name: last_name,
         email: email,
         schedule: schedule
     }
