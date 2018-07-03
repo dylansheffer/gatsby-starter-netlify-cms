@@ -1,4 +1,5 @@
 exports.handler = function(event, context, callback) {
+    const https = require('https');
     const {
         webinar_id,
         first_name,
@@ -9,7 +10,7 @@ exports.handler = function(event, context, callback) {
 
     console.log(event.queryStringParameters);
 
-    const data = {
+    const body = {
         apiKey: process.env.WEBINAR_JAM_API_KEY || '',
         webinarId: webinar_id,
         firstName: first_name,
@@ -25,21 +26,39 @@ exports.handler = function(event, context, callback) {
         email &&
         schedule
     )) {
-        console.log(data);
-       return callback("Request did not contain required fields", {
+        console.log(body);
+        return callback("Request did not contain required fields", {
             statusCode: 400
         });
     }
 
-
-
-    fetch('https://webinarjam.genndi.com/api/register', {
+    const options = {
         method: 'POST',
         mode: 'cors',
-        body: data,
+        body: body,
         headers: {
             'user-agent': 'Mozilla/4.0 MDN Example',
             'content-type': 'application/json'
-          }
+          },
+        path: 'https://webinarjam.genndi.com/api/register'
+    }
+
+    const req = https.request(options,(res) => {
+        let data = '';
+
+        // A chunk of data has been recieved.
+        res.on('data', (chunk) => {
+          data += chunk;
+        });
+
+      // The whole response has been received. Print out the result.
+      res.on('end', () => {
+        console.log(JSON.parse(data));
+      });
+
+    }).on("error", (err) => {
+      console.log("Error: " + err.message);
     });
+
+    req.end();
 }
