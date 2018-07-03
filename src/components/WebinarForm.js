@@ -69,9 +69,11 @@ export default class WebinarForm extends Component {
                     autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true
+                    pauseOnHover: true,
+                    onClose: () => this.props.postSubmit
                 });
-                this.props.postSubmit();
+                const postSubmit = (p) => {setTimeout(function() { p(); }, 3000);}
+                postSubmit(this.props.postSubmit);
             }
             else {
                 toast.error(`Error registering for webinar`, {

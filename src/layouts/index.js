@@ -2,12 +2,13 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styledNormalize from 'styled-normalize'
-import styled, { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components'
 import fontawesome from '@fortawesome/fontawesome'
+import { ToastContainer } from 'react-toastify'
 
 import 'normalize.css'
 import '@fortawesome/fontawesome/styles.css'
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import { colors, text } from '../style/branding'
 
 import Navbar from '../components/Navbar'
@@ -33,6 +34,7 @@ const TemplateWrapper = ({ children, location }) => (
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
     </Helmet>
     <Navbar />
+    <ToastContainer />
      {location.pathname === "/" ? (
         <Hero>
           <Tagline color={colors.lightText}>
