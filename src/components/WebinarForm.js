@@ -12,13 +12,18 @@ export default class WebinarForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const apiHost = process.env.NETLIFY_FUNC;
-
-        console.log(apiHost);
 
         const form = event.target;
         const data = JSON.stringify(new FormData(form));
         console.log(data);
+
+        fetch('https://wizardly-aryabhata-7d1959.netlify.com/.netlify/functions/WebinarJam-RegisterForWebinar?webinar_id=f3b0bbd1ce&schedule=1&first_name=dylan4&last_name=sheffer&email=juroricey@larjem.com',{
+            method: 'GET',
+            headers: {
+                        'user-agent': 'Mozilla/4.0 MDN Example',
+                        'content-type': 'application/json'
+            }
+        })
         // let url = `https://webinar-jam-test.azurewebsites.net/api/HttpTriggerJS1?code=7IznAaIV2aoKrjEq8VtD1m7UsCHy6J4Ya17/ak1oMeXMR5cKZ0myuQ==`
 
         // data.append("api_key", process.env.WEBINAR_JAM_API_KEY || '');
