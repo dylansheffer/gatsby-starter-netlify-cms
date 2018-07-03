@@ -69,8 +69,7 @@ export default class WebinarForm extends Component {
                     autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true,
-                    onClose: () => this.props.postSubmit
+                    pauseOnHover: true
                 });
                 const postSubmit = (p) => {setTimeout(function() { p(); }, 3000);}
                 postSubmit(this.props.postSubmit);

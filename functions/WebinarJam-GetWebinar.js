@@ -51,24 +51,13 @@ exports.handler = function (event, context, callback) {
         req.end();
     }
 
-    const {
-        webinar_id,
-        first_name,
-        last_name,
-        email,
-        schedule
-    } = event.queryStringParameters;
+    const { webinar_id } = event.queryStringParameters;
 
     console.log(event.queryStringParameters);
 
 
     // Throw error if body doesn't have required fields
-    if (!(
-            webinar_id &&
-            first_name &&
-            email &&
-            schedule
-        )) {
+    if (!(webinar_id)) {
         return callback("Request did not contain required fields", {
             statusCode: 400
         });
@@ -76,14 +65,10 @@ exports.handler = function (event, context, callback) {
 
     const body = {
         api_key: process.env.WEBINAR_JAM_API_KEY || '',
-        webinar_id: webinar_id,
-        first_name: first_name,
-        last_name: last_name,
-        email: email,
-        schedule: schedule
+        webinar_id: webinar_id
     }
 
-    performRequest('/api/register', 'POST', body, function (data) {
+    performRequest('/api/webinar', 'GET', body, function (data) {
         console.log(data);
         return data;
     });
