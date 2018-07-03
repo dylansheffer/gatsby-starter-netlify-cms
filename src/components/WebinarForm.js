@@ -16,7 +16,7 @@ export default class WebinarForm extends Component {
             firstNameInput: '',
             lastNameInput: '',
             emailInput: '',
-            scheduleInput: ''
+            scheduleInput: '0'
         }
 
         this.updateFirstNameInput = this.updateFirstNameInput.bind(this);
