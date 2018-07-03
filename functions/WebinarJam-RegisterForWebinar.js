@@ -1,4 +1,4 @@
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
     const querystring = require('querystring');
     const https = require('https');
 
@@ -10,11 +10,10 @@ exports.handler = function(event, context, callback) {
 
         if (method == 'GET') {
             endpoint += '?' + querystring.stringify(data);
-        }
-        else {
+        } else {
             headers = {
-            'Content-Type': 'application/json',
-            'Content-Length': dataString.length
+                'Content-Type': 'application/json',
+                'Content-Length': dataString.length
             };
         }
 
@@ -25,22 +24,22 @@ exports.handler = function(event, context, callback) {
             headers: headers
         };
 
-        const req = https.request(options, function(res) {
+        const req = https.request(options, function (res) {
             res.setEncoding('utf-8');
 
             let responseString = '';
 
-            res.on("error", (err) => {
-                return callback(err.message, {
+            res.on("error", (err) => { 
+                return callback(err.message, {
                     statusCode: 400
                 });
             });
 
-            res.on('data', function(data) {
+            res.on('data', function (data) {
                 responseString += data;
             });
 
-            res.on('end', function() {
+            res.on('end', function () {
                 console.log(responseString);
                 const responseObject = JSON.parse(responseString);
                 return success(responseObject);
@@ -65,11 +64,11 @@ exports.handler = function(event, context, callback) {
 
     // Throw error if body doesn't have required fields
     if (!(
-        webinar_id &&
-        first_name &&
-        email &&
-        schedule
-    )) {
+            webinar_id &&
+            first_name &&
+            email &&
+            schedule
+        )) {
         return callback("Request did not contain required fields", {
             statusCode: 400
         });
@@ -84,7 +83,7 @@ exports.handler = function(event, context, callback) {
         schedule: schedule
     }
 
-    performRequest('/api/register', 'POST', body, function(data) {
+    performRequest('/api/register', 'POST', body, function (data) {
         console.log(data, "Success");
         return data;
     });
