@@ -9,11 +9,11 @@ exports.handler = function(event, context, callback) {
 
     const data = {
         apiKey: process.env.WEBINAR_JAM_API_KEY || '',
-        webinarId,
-        firstName,
-        lastName,
-        email,
-        schedule
+        webinarId: webinarId,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        schedule: schedule
     }
 
     // Throw error if body doesn't have required fields
