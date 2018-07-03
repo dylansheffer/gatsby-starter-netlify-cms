@@ -115,8 +115,8 @@ export default class WebinarForm extends Component {
                 <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" onChange={this.updateEmailInput} />
 
-                <label htmlFor="session">Session</label>
-                <input id="session" name="session" type="text" onChange={this.updateScheduleInput} />
+                {/* <label htmlFor="session">Session</label> */}
+                <input id="session" name="session" type="hidden" value="0" />
                 {/* <select id="session" name="session" type="text" defaultValue="Select a session">
                 </select> */}
                 {/* <input type="hidden" name="webinarId" value={webinarId}/> */}
