@@ -53,9 +53,9 @@ export class WebinarRegisterModal extends Component {
                 <WebinarForm title={title} webinarId={webinarId} />
             </ReactModal>
 
-            <Hide>
+            {/* <Hide>
                 <WebinarForm title={title} webinarId={webinarId} />
-            </Hide>
+            </Hide> */}
         </div>
     )
   }

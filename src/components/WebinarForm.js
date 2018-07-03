@@ -67,20 +67,10 @@ export default class WebinarForm extends Component {
         return (
             <form
             name={formName}
-            method="post"
-            action="/"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
             >
                 <h1>Register for {title}</h1>
                 <input type="hidden" name="form-name" value={formName} />
-                <p hidden>
-                    <label>
-                    Don’t fill this out:
-                    <input name="bot-field" />
-                    </label>
-                </p>
                 <label htmlFor="firstName">First Name</label>
                 <input id="firstName" name="firstName" type="text" onChange={this.updateFirstNameInput} />
 
