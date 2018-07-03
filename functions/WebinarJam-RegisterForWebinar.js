@@ -43,6 +43,9 @@ exports.handler = function(event, context, callback) {
         path: 'https://webinarjam.genndi.com/api/register'
     }
 
+    console.log(options);
+
+
     const req = https.request(options,(res) => {
         let data = '';
 
@@ -57,7 +60,9 @@ exports.handler = function(event, context, callback) {
       });
 
     }).on("error", (err) => {
-      console.log("Error: " + err.message);
+        return callback(err.message, {
+            statusCode: 400
+        });
     });
 
     req.end();
