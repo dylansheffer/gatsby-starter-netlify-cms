@@ -14,7 +14,7 @@ exports.handler = function(event, context, callback) {
         email &&
         schedule
     )) {
-        callback("Request did not contain required fields", {
+       return callback("Request did not contain required fields", {
             statusCode: 400
         });
     }
