@@ -30,15 +30,22 @@ exports.handler = function(event, context, callback) {
 
             let responseString = '';
 
+            res.on("error", (err) => {
+                return callback(err.message, {
+                    statusCode: 400
+                });
+            });
+
             res.on('data', function(data) {
-            responseString += data;
+                responseString += data;
             });
 
             res.on('end', function() {
-            console.log(responseString);
-            const responseObject = JSON.parse(responseString);
-            success(responseObject);
+                console.log(responseString);
+                const responseObject = JSON.parse(responseString);
+                return success(responseObject);
             });
+
         });
 
         req.write(dataString);
@@ -79,42 +86,6 @@ exports.handler = function(event, context, callback) {
 
     performRequest('/api/register', 'POST', body, function(data) {
         console.log(data, "Success");
+        return data;
     });
-
-
-    // const options = {
-    //     method: 'POST',
-    //     mode: 'cors',
-    //     body: body,
-    //     headers: {
-    //         'user-agent': 'Mozilla/4.0 MDN Example',
-    //         'content-type': 'application/json'
-    //       },
-    //     host: 'webinarjam.genndi.com',
-    //     path: '/api/register'
-    // }
-
-    // console.log(options);
-
-
-    // const req = https.request(options,(res) => {
-    //     let data = '';
-
-    //     // A chunk of data has been recieved.
-    //     res.on('data', (chunk) => {
-    //       data += chunk;
-    //     });
-
-    //   // The whole response has been received. Print out the result.
-    //   res.on('end', () => {
-    //     console.log(data);
-    //   });
-
-    // }).on("error", (err) => {
-    //     return callback(err.message, {
-    //         statusCode: 400
-    //     });
-    // });
-
-    // req.end();
 }
