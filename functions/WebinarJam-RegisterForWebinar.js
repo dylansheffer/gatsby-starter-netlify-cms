@@ -7,7 +7,7 @@ exports.handler = function(event, context, callback) {
         schedule
     } = JSON.stringify(event.body);
 
-    console.log(JSON.stringify(event.body));
+    console.log(event);
 
     const data = {
         apiKey: process.env.WEBINAR_JAM_API_KEY || '',
