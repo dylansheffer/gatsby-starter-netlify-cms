@@ -59,7 +59,6 @@ export default class WebinarForm extends Component {
                     <input name="bot-field" />
                     </label>
                 </p>
-                <input type="hidden" name="webinarId" value={webinarId}/>
                 <label htmlFor="firstName">First Name</label>
                 <input id="firstName" name="firstName" type="text" />
 
@@ -71,6 +70,7 @@ export default class WebinarForm extends Component {
 
                 <label htmlFor="session">Session</label>
                 <select id="session" name="session" type="text" defaultValue="Select a session">
+                <input type="hidden" name="webinarId" value={webinarId}/>
                 </select>
                 <Button><button>Register</button></Button>
             </form>
