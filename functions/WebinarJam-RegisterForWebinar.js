@@ -5,9 +5,9 @@ exports.handler = function(event, context, callback) {
         lastName,
         email,
         schedule
-    } = JSON.parse(event.body);
+    } = JSON.parse(event.queryStringParameters);
 
-    console.log(JSON.parse(event.body));
+    console.log(event.queryStringParameters);
 
     const data = {
         apiKey: process.env.WEBINAR_JAM_API_KEY || '',
