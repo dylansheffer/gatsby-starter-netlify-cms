@@ -7,44 +7,58 @@ import Button from '../components/Button'
 export default class WebinarForm extends Component {
     constructor() {
         super();
+        this.state = {
+            webinarId: '',
+            firstNameInput: '',
+            lastNameInput: '',
+            emailInput: '',
+            scheduleInput: ''
+        }
+
+        this.updateFirstNameInput = this.updateFirstNameInput.bind(this);
+        this.updateLastNameInput = this.updateLastNameInput.bind(this);
+        this.updateEmailInput = this.updateEmailInput.bind(this);
+        this.updateScheduleInput = this.updateScheduleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    updateFirstNameInput(event) {
+        this.setState({
+            firstNameInput: event.target.value
+        });
+    }
+
+    updateLastNameInput(event) {
+        this.setState({
+            lastNameInput: event.target.value
+        });
+    }
+
+    updateEmailInput(event) {
+        this.setState({
+            emailInput: event.target.value
+        });
+    }
+
+    updateScheduleInput(event) {
+        this.setState({
+            scheduleInput: event.target.value
+        });
     }
 
     handleSubmit(event) {
         event.preventDefault();
 
-        const form = event.target;
-        const data = JSON.stringify(new FormData(form));
-        console.log(data);
-
-        fetch('https://wizardly-aryabhata-7d1959.netlify.com/.netlify/functions/WebinarJam-RegisterForWebinar?webinar_id=f3b0bbd1ce&schedule=1&first_name=dylan4&last_name=sheffer&email=asdf@o3enzyme.com',{
+        const {firstNameInput, lastNameInput, emailInput, scheduleInput} = this.state;
+        const { webinarId } = this.props;
+        debugger
+        fetch(`https://wizardly-aryabhata-7d1959.netlify.com/.netlify/functions/WebinarJam-RegisterForWebinar?webinar_id=${webinarId}&schedule=${scheduleInput}&first_name=${firstNameInput}&last_name=${lastNameInput}&email=${emailInput}`,{
             method: 'GET',
             headers: {
                         'user-agent': 'Mozilla/4.0 MDN Example',
                         'content-type': 'application/json'
             }
         });
-        // let url = `https://webinar-jam-test.azurewebsites.net/api/HttpTriggerJS1?code=7IznAaIV2aoKrjEq8VtD1m7UsCHy6J4Ya17/ak1oMeXMR5cKZ0myuQ==`
-
-        // data.append("api_key", process.env.WEBINAR_JAM_API_KEY || '');
-        // data.append("webinar_id", this.props.webinarId);
-        // fetch('https://webinarjam.genndi.com/api/register', {
-        //     method: 'POST',
-        //     mode: 'cors',
-        //     body: JSON.stringify(data),
-        //     headers: {
-        //         'user-agent': 'Mozilla/4.0 MDN Example',
-        //         'content-type': 'application/json'
-        //       }
-        // });
-        // fetch('https://webinar-jam-test.azurewebsites.net/api/HttpTriggerJS1?code=7IznAaIV2aoKrjEq8VtD1m7UsCHy6J4Ya17/ak1oMeXMR5cKZ0myuQ==', {
-        //     method: 'GET',
-        //     body: JSON.stringify(data),
-        //     headers: {
-        //                 'user-agent': 'Mozilla/4.0 MDN Example',
-        //                 'content-type': 'application/json'
-        //     }
-        // })
     }
 
     render() {
@@ -68,18 +82,19 @@ export default class WebinarForm extends Component {
                     </label>
                 </p>
                 <label htmlFor="firstName">First Name</label>
-                <input id="firstName" name="firstName" type="text" />
+                <input id="firstName" name="firstName" type="text" onChange={this.updateFirstNameInput} />
 
                 <label htmlFor="lastName">Last Name</label>
-                <input id="lastName" name="lastName" type="text" />
+                <input id="lastName" name="lastName" type="text" onChange={this.updateLastNameInput} />
 
                 <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" />
+                <input id="email" name="email" type="email" onChange={this.updateEmailInput} />
 
                 <label htmlFor="session">Session</label>
-                <select id="session" name="session" type="text" defaultValue="Select a session">
-                </select>
-                <input type="hidden" name="webinarId" value={webinarId}/>
+                <input id="session" name="session" type="text" onChange={this.updateScheduleInput} />
+                {/* <select id="session" name="session" type="text" defaultValue="Select a session">
+                </select> */}
+                {/* <input type="hidden" name="webinarId" value={webinarId}/> */}
                 <Button><button>Register</button></Button>
             </form>
         );
