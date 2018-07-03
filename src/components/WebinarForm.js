@@ -17,7 +17,7 @@ export default class WebinarForm extends Component {
         const data = JSON.stringify(new FormData(form));
         console.log(data);
 
-        fetch('https://wizardly-aryabhata-7d1959.netlify.com/.netlify/functions/WebinarJam-RegisterForWebinar?webinar_id=f3b0bbd1ce&schedule=1&first_name=dylan4&last_name=sheffer&email=juroricey@larjem.com',{
+        fetch('https://wizardly-aryabhata-7d1959.netlify.com/.netlify/functions/WebinarJam-RegisterForWebinar?webinar_id=f3b0bbd1ce&schedule=1&first_name=dylan4&last_name=sheffer&email=asdf@o3enzyme.com',{
             method: 'GET',
             headers: {
                         'user-agent': 'Mozilla/4.0 MDN Example',
