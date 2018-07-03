@@ -52,12 +52,13 @@ exports.handler = function(event, context, callback) {
 
         // A chunk of data has been recieved.
         res.on('data', (chunk) => {
+            console.log(chunk);
           data += chunk;
         });
 
       // The whole response has been received. Print out the result.
       res.on('end', () => {
-        console.log(JSON.parse(data));
+        console.log(data);
       });
 
     }).on("error", (err) => {
