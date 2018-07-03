@@ -5,7 +5,7 @@ exports.handler = function(event, context, callback) {
         lastName,
         email,
         schedule
-    } = JSON.parse(event.queryStringParameters);
+    } = event.queryStringParameters;
 
     console.log(event.queryStringParameters);
 
