@@ -65,8 +65,7 @@ const AuthorCards = ({authors, authorType, authorTypePlural}) => (
 
                                     {authors[0].email ?
                                         <li>
-                                            <FontAwesomeIcon icon={faEnvelope} />
-                                            <a aria-label={`Email ${authors[0].title}`} href={`mailto:${authors[0].email}`} title={`Email ${authors[0].title}`}>{authors[0].email}</a>
+                                            <a href={`mailto:${authors[0].email}`} aria-label={`Email ${authors[0].title}`} title={`Email ${authors[0].title}`}><FontAwesomeIcon icon={faEnvelope} /></a>
                                         </li>
                                     : ""}
 
