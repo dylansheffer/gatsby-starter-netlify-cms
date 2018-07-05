@@ -1,6 +1,6 @@
 ---
 templateKey: article
-title: RevolutionConf 2017 Event Recap
+title: RevolutionConf 2017 Event Recap2
 authors:
   - bio: >-
       Training. Consulting. Community guy. If you don't know who I am, let's
