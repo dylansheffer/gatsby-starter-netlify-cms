@@ -30,6 +30,15 @@ export default class IndexPage extends React.Component {
     }
     ));
 
+    const UpcomingCourses = posts.filter(course => course.node.frontmatter.templateKey == 'course').slice(0, 1)
+    .map(({ node: course }) => (
+    {
+      title: course.frontmatter.title,
+      description: course.frontmatter.description,
+      link: course.fields.slug
+    }
+    ));
+
     return (
       <div>
         <PageSection backgroundColor={colors.offWhite}>
@@ -42,7 +51,7 @@ export default class IndexPage extends React.Component {
                 Technology moves fast. Does your team have the resources they need to keep up, or will your projects fall behind?
               </Tagline>
               <FlexContainer >
-                <CourseCard title="Public Training" description="If you have a smaller team, the cost of providing customized training can be a limiting factor. Swift Kick offers public training courses throughout the United States." data={{title: "Docker Workshop", location: "Richmond, VA USA", date: "July 27-28, 2017"}}/>
+                <CourseCard title="Upcoming Training" description="If you have a smaller team, the cost of providing customized training can be a limiting factor. Swift Kick offers public training courses throughout the United States." data={UpcomingCourses[0]}/>
                 <SwiftKickShowCard title="Swift Kick Show" description="The Swift Kick Show is a webinar series that brings in industry experts to share their knowledge for free." data={UpcomingSwiftKickShows[0]}>
                   <Button buttonSize="small" style={{alignSelf: 'center'}}><a href="https://www.youtube.com/channel/UC3iCOs_7lQ85OWOy6lhy4_g/featured">View the Catalog</a></Button>
                 </SwiftKickShowCard>

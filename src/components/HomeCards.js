@@ -76,9 +76,8 @@ export const CourseCard = ({ data, title, description, ...props}) => (
         {data ? (
             <UpcomingEventContainer>
                 <Link to="/"><h3>{data.title}</h3></Link>
-                <p>{data.location}</p>
-                <p><time>{data.date}</time></p>
-                <Button className="register-button" buttonSize="small"><Link to="/">Register</Link></Button>
+                <p>{data.description}</p>
+                <Button className="register-button" buttonSize="small"><Link to={data.link}>Register</Link></Button>
                 <a className="request-link" href="mailto:info@swiftkick.in">Request a workshop in my city</a>
             </UpcomingEventContainer>
         ):null}
