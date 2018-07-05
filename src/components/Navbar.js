@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -84,39 +84,46 @@ const Navigation = styled.nav`
   }
   `
 
-
-let menuClosed = true;
-
-const NavLink = ({ to, activeStyle, faIcon, text }) => (
-  <li>
+const NavLink = ({ to, activeStyle, faIcon, text, onClick }) => (
+  <li onClick={onClick}>
     <Link to={to} activeStyle={activeStyle || {}}>
       <FontAwesomeIcon icon={faIcon} /> {text}
     </Link>
   </li>
 )
 
-const Navbar = () => (
-  <Navigation>
-    <div className="nav-container container">
-      <div className="hamburger-container">
-        <button onClick={() => {
-          const menu = document.querySelector("#menu");
-          menuClosed = !menuClosed;
-          menuClosed ? menu.classList.add("closed") : menu.classList.remove("closed");
-          }}>
-          <FontAwesomeIcon icon={faBars} size="2x" />
-        </button>
-      </div>
-      <ul id="menu" className="closed">
-        <NavLink to="/" faIcon={faHome} text="Home" />
-        <NavLink to="/courses" activeStyle={{backgroundColor: colors.gray}} faIcon={faListUl} text="Courses" />
-        <NavLink to="/consulting" activeStyle={{backgroundColor: colors.gray}} faIcon={faBriefcase} text="Consulting" />
-        <NavLink to="/articles" activeStyle={{backgroundColor: colors.gray}} faIcon={faFile} text="Articles" />
-        <NavLink to="/webinars" activeStyle={{backgroundColor: colors.gray}} faIcon={faVideo} text="Webinars" />
-        <NavLink to="/about" activeStyle={{backgroundColor: colors.gray}} faIcon={faUsers} text="About Us" />
-      </ul>
-    </div>
-  </Navigation>
-)
+export default class Navbar extends Component {
 
-export default Navbar
+  constructor (props) {
+    super(props);
+    this.state = {
+      menuClosed: true
+    }
+  }
+
+  toggleMenu(menuState) {
+    this.setState({menuClosed: menuState});
+  }
+
+  render() {
+    return (
+      <Navigation>
+        <div className="nav-container container">
+          <div className="hamburger-container">
+            <button onClick={() => this.toggleMenu(!this.state.menuClosed)}>
+              <FontAwesomeIcon icon={faBars} size="2x" />
+            </button>
+          </div>
+          <ul id="menu" className={this.state.menuClosed ? `closed` : ''}>
+            <NavLink to="/" faIcon={faHome} text="Home" onClick={() => this.toggleMenu(true)}/>
+            <NavLink to="/courses" activeStyle={{backgroundColor: colors.gray}} faIcon={faListUl} text="Courses" onClick={() => this.toggleMenu(true)}/>
+            <NavLink to="/consulting" activeStyle={{backgroundColor: colors.gray}} faIcon={faBriefcase} text="Consulting" onClick={() => this.toggleMenu(true)}/>
+            <NavLink to="/articles" activeStyle={{backgroundColor: colors.gray}} faIcon={faFile} text="Articles" onClick={() => this.toggleMenu(true)}/>
+            <NavLink to="/webinars" activeStyle={{backgroundColor: colors.gray}} faIcon={faVideo} text="Webinars" onClick={() => this.toggleMenu(true)}/>
+            <NavLink to="/about" activeStyle={{backgroundColor: colors.gray}} faIcon={faUsers} text="About Us" onClick={() => this.toggleMenu(true)}/>
+          </ul>
+        </div>
+      </Navigation>
+    )
+  }
+}
